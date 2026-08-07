@@ -12,7 +12,8 @@ const FIELDS = [...new Set(EXPERTS.map(e=>e.field))];
 const TIERS_LIST = ["高效度","中效度","低效度"];
 const AGE_LIST = ["30-49","50-64","65+"];
 const GENDER_LIST = ["男","女"];
-const REGION_LIST = ["西方"];
+const REGION_LIST = ["西方","中国","日本","古罗马"];
+const COUNTRY_LIST = [...new Set(EXPERTS.map(e=>e.countryWork))];
 function dimCount(dim,val){
   return EXPERTS.filter(e=>{
     if(dim==="field")return e.field===val;
@@ -20,6 +21,7 @@ function dimCount(dim,val){
     if(dim==="income")return e.incomeTier===val;
     if(dim==="gender")return e.gender===val;
     if(dim==="region")return e.region===val;
+    if(dim==="country")return e.countryWork===val;
     if(dim==="school")return e.schools.includes(val);
     if(dim==="tier")return DOMAIN[e.id].tier===val;
     if(dim==="cluster")return DOMAIN[e.id].cluster===val;
@@ -36,6 +38,7 @@ const dimsHtml = [
   ["age","年龄段",AGE_LIST,v=>v+"岁"],
   ["income","年收入",[1,2,3,4,5],v=>INCOME_LABEL[v]],
   ["gender","性别",GENDER_LIST,null],
+  ["country","国别（执业）",COUNTRY_LIST,null],
   ["region","文化圈",REGION_LIST,null],
 ].map(([k,label,vals,map])=>`<div class="dim"><span class="dl">${label}</span><div class="chips">${chips(k,vals,map)}</div></div>`).join('');
 
@@ -45,12 +48,12 @@ const cards = EXPERTS.map(e=>{
     <div class="vp-item"><div class="vt">${esc(v.t)}<span class="vauth ${v.auth}" title="${esc(AUTH[v.auth])}">${v.auth}</span></div>
     <div class="vd">${esc(v.d)}</div><div class="vverify">${esc(v.verify)}</div>
     <div class="vcats">${v.c.map(c=>`<span class="c">${c}·${esc(splitP(CAT[c]))}</span>`).join('')}</div></div>`).join('');
-  return `<details class="card" data-field="${esc(e.field)}" data-tier="${esc(DOMAIN[e.id].tier)}" data-cluster="${esc(DOMAIN[e.id].cluster)}" data-age="${esc(e.ageBracket)}" data-income="${e.incomeTier}" data-gender="${esc(e.gender)}" data-region="${esc(e.region)}" data-schools="${esc(e.schools.join(','))}">
-    <summary><div class="row1"><span class="nm">${esc(e.nameZh)}<small>${esc(e.name)}</small></span><span class="reg">${esc(e.region)}</span><span class="chev"></span></div>
+  return `<details class="card" data-field="${esc(e.field)}" data-tier="${esc(DOMAIN[e.id].tier)}" data-cluster="${esc(DOMAIN[e.id].cluster)}" data-age="${esc(e.ageBracket)}" data-income="${e.incomeTier}" data-gender="${esc(e.gender)}" data-region="${esc(e.region)}" data-country="${esc(e.countryWork)}" data-schools="${esc(e.schools.join(','))}">
+    <summary><div class="row1"><span class="nm">${esc(e.nameZh)}<small>${esc(e.name)}</small></span><span class="reg">${esc(e.countryBirth)}→${esc(e.countryWork)}</span><span class="chev"></span></div>
     <div class="row2"><span class="field">${esc(e.field)}</span><span class="sep">·</span><span>${e.ageBracket}岁</span><span class="sep">·</span><span>${e.viewpoints.length}条观点</span></div></summary>
     <div class="body">
       <div class="facts">
-        <div><span>性别</span><b>${esc(e.gender)}</b></div><div><span>年收入</span><b>${esc(e.income)}</b></div>
+        <div><span>性别</span><b>${esc(e.gender)}</b></div><div><span>国别（出生→执业）</span><b>${esc(e.countryBirth)}→${esc(e.countryWork)}</b></div><div><span>年收入</span><b>${esc(e.income)}</b></div>
         <div><span>反馈效度</span><b>${esc(DOMAIN[e.id].tier)}</b></div><div><span>领域簇</span><b>${esc(DOMAIN[e.id].cluster)}</b></div>
         <div><span>思想学派</span><b class="sch">${esc(e.schools.map(s=>splitP(SCHOOLS[s])).join('、'))}</b></div>
         <div class="facts-tags">${schools}</div>
@@ -175,6 +178,7 @@ function matchDim(card,dim,val){
   if(dim==="income")return card.dataset.income===val;
   if(dim==="gender")return card.dataset.gender===val;
   if(dim==="region")return card.dataset.region===val;
+  if(dim==="country")return card.dataset.country===val;
   if(dim==="school")return card.dataset.schools.split(',').includes(val);
 }
 function applyFilters(){

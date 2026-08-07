@@ -11,7 +11,7 @@ const topChips = Object.keys(CAT).map(k=>({name:CAT[k],count:CAT_STATS[k].count}
   .map(s=>`<span><b>${s.count}</b> ${esc(splitP(s.name))}</span>`).join('');
 
 const exlist = EXPERTS.map(e=>
-  `<a class="ex" href="${e.file}">${esc(e.nameZh)}<span class="f">${esc(e.field)} · ${e.region}</span></a>`).join('');
+  `<a class="ex" href="${e.file}">${esc(e.nameZh)}<span class="f">${esc(e.field)} · ${e.countryBirth}→${e.countryWork}</span></a>`).join('');
 
 const html = `<!DOCTYPE html>
 <html lang="zh-CN" data-theme="dark">
@@ -61,11 +61,11 @@ h2.sec{font-size:18px;margin:38px 0 14px;border-bottom:1px solid var(--border);p
 <div class="hero">
   <div class="k">研究工程 · how-to-be-an-expert</div>
   <h1>如何成为一个专家？</h1>
-  <p>跨七域、${N} 位非中国专家的深度研究工程（已排除任何带中国学习/工作经历者）。先广采（专家原话与观点），再细织（多维分类 Wiki），又精析（观点共识与聚类可视化 + 真实性核验 + 领域分野），终深挖（思想报告）。目的：找到"成为专家"的通用能力框架与必要条件，而非堆砌成功学语录。</p>
+  <p>跨八域、${N} 位中外专家的深度研究工程（含 15 位中国专家；国别维度记录出生国→主要执业国）。先广采（专家原话与观点），再细织（多维分类 Wiki），又精析（观点共识与聚类可视化 + 真实性核验 + 领域分野），终深挖（思想报告与实验汇报书）。目的：找到"成为专家"的通用能力框架与必要条件，而非堆砌成功学语录。</p>
 </div>
 <div class="wrap">
   <div class="cards">
-    <a class="card k1" href="wiki/index.html"><div class="num">第一步·广 + 第二步·细</div><h3>专家资料 & 多维 Wiki</h3><p>${N} 位专家的背景、原话、提炼观点与研究者思考。按领域/年龄/收入/性别/文化圈/学派/反馈效度/领域簇八维筛选浏览。</p><span class="go">进入 Wiki →</span></a>
+    <a class="card k1" href="wiki/index.html"><div class="num">第一步·广 + 第二步·细</div><h3>专家资料 & 多维 Wiki</h3><p>${N} 位专家的背景、原话、提炼观点与研究者思考。按领域/年龄/收入/性别/国别/文化圈/学派/反馈效度/领域簇九维筛选浏览。</p><span class="go">进入 Wiki →</span></a>
     <a class="card k2" href="analysis/index.html"><div class="num">第三步·精</div><h3>观点数据分析与可视化</h3><p>17 节点共识排名、专家×观点热力矩阵、思想学派聚类、真实性核验、实践型vs知识型、领域分野八项可视化。</p><span class="go">查看分析 →</span></a>
     <a class="card k3" href="report/index.html"><div class="num">第四步·深</div><h3>深度思想报告</h3><p>直答三问：如何成长为专家、专家必备思维模式、专家如何获得时间自由；含实践型vs知识型分野与领域分野两章。</p><span class="go">阅读报告 →</span></a>
     <a class="card k4" href="README.md"><div class="num">说明</div><h3>项目 README</h3><p>工程结构、方法论、数据来源与局限、如何本地浏览。</p><span class="go">查看说明 →</span></a>
@@ -73,7 +73,7 @@ h2.sec{font-size:18px;margin:38px 0 14px;border-bottom:1px solid var(--border);p
   <div class="findings">
     <h2>核心发现</h2>
     <ol>
-      <li><b>跨领域存在通用结构</b>：${N} 位非中国专家横跨八域，在"长期复利积累"上共识最高（30/${N}），其次"刻意练习""过程导向"（各 28）、"行动/外化/不自欺"（27）、"成长思维"（24）。</li>
+      <li><b>跨领域存在通用结构</b>：${N} 位中外专家横跨八域，在"长期复利积累"上共识最高（${CAT_STATS.C2.count}/${N}），其次"刻意练习"（${CAT_STATS.C1.count}）、"教学外化"（${CAT_STATS.C16.count}）、"过程导向"（${CAT_STATS.C15.count}）、"成长思维"（${CAT_STATS.C7.count}）。</li>
       <li><b>成为专家 = 方向×复利×反馈×心性</b>的自运转系统，天赋只决定初始斜率，系统决定终点。</li>
       <li><b>观点真实性核验</b>：约 ${(D.AUTH_STATS['亲历']/D.EXPERTS.reduce((s,e)=>s+e.viewpoints.length,0)*100).toFixed(0)}% 观点为亲历型（基于自身经历/研究/实践），约 ${(D.AUTH_STATS['借鉴']/D.EXPERTS.reduce((s,e)=>s+e.viewpoints.length,0)*100).toFixed(0)}% 为显式借鉴，仅极少数为通用常识——共识建立于亲历思考而非人云亦云。</li>
       <li><b>实践型 vs 知识型分野</b>（报告第五章）：两类专家成长路径有根本差异，根源是领域反馈结构；实践型策略放进知识型环境会变劣势（移植悖论）。</li>

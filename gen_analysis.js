@@ -65,7 +65,8 @@ function mini(title,map,ordinal){
   }).join('');
   return `<div class="mini"><h4>${esc(title)}</h4>${rows}</div>`;
 }
-const demo = mini('从事领域',dist('field'),false)+mini('文化圈',dist('region'),false)+mini('性别',dist('gender'),false)
+const demo = mini('从事领域',dist('field'),false)+mini('国别（执业）',dist('countryWork'),false)+mini('出生国',dist('countryBirth'),false)
+  +mini('文化圈',dist('region'),false)+mini('性别',dist('gender'),false)
   +mini('年龄段',dist('ageBracket'),true)
   +mini('年收入层级',(()=>{const m={};EXPERTS.forEach(e=>m[INCOME_LABEL[e.incomeTier]]=(m[INCOME_LABEL[e.incomeTier]]||0)+1);return m;})(),true);
 
@@ -116,7 +117,7 @@ const dheatRows = CLUSTER_ORDER.map(cl=>{
 
 // ---- stats tiles ----
 const stats = `
-  <div class="stat"><div class="n t1">${N}</div><div class="l">专家数（非中国）</div></div>
+  <div class="stat"><div class="n t1">${N}</div><div class="l">专家数（中外）</div></div>
   <div class="stat"><div class="n">${totalVP}</div><div class="l">提炼观点总数</div></div>
   <div class="stat"><div class="n t2">${CAT_KEYS.length}</div><div class="l">能力框架节点</div></div>
   <div class="stat"><div class="n t3">${AUTH_STATS['亲历']}</div><div class="l">亲历型观点（${(AUTH_STATS['亲历']/totalVP*100).toFixed(0)}%）</div></div>

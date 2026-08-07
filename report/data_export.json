@@ -1,7 +1,7 @@
 {
  "meta": {
-  "nExperts": 43,
-  "totalViewpoints": 303,
+  "nExperts": 58,
+  "totalViewpoints": 401,
   "nCats": 17,
   "nSchools": 7,
   "nClusters": 11
@@ -42,7 +42,7 @@
  "CAT_STATS": {
   "C1": {
    "name": "刻意练习与高质量训练",
-   "count": 28,
+   "count": 41,
    "experts": [
     "ericsson",
     "gladwell",
@@ -71,12 +71,25 @@
     "mcclintock",
     "musashi",
     "goggins",
-    "biles"
+    "biles",
+    "xiaolai",
+    "wujun",
+    "yujun",
+    "caizhizhong",
+    "brucelee",
+    "renzhengfei",
+    "zhangyiming",
+    "zhongnanshan",
+    "yangzhenning",
+    "tuoyouyou",
+    "moyan",
+    "lian",
+    "yaoming"
    ]
   },
   "C2": {
    "name": "时间投入与长期积累（复利）",
-   "count": 30,
+   "count": 42,
    "experts": [
     "gladwell",
     "duckworth",
@@ -107,12 +120,24 @@
     "musashi",
     "aurelius",
     "goggins",
-    "biles"
+    "biles",
+    "xiaolai",
+    "wujun",
+    "duanyongping",
+    "caizhizhong",
+    "renzhengfei",
+    "mayun",
+    "zhangyiming",
+    "zhongnanshan",
+    "yangzhenning",
+    "tuoyouyou",
+    "moyan",
+    "yaoming"
    ]
   },
   "C3": {
    "name": "专注深度与置心一处",
-   "count": 15,
+   "count": 20,
    "experts": [
     "newport",
     "waitzkin",
@@ -128,12 +153,17 @@
     "gould",
     "mcclintock",
     "musashi",
-    "aurelius"
+    "aurelius",
+    "xiaolai",
+    "caizhizhong",
+    "brucelee",
+    "renzhengfei",
+    "zhangyiming"
    ]
   },
   "C4": {
    "name": "反馈测量与闭环",
-   "count": 17,
+   "count": 19,
    "experts": [
     "ericsson",
     "gawande",
@@ -151,12 +181,14 @@
     "king",
     "mcclintock",
     "aurelius",
-    "goggins"
+    "goggins",
+    "yujun",
+    "zhongnanshan"
    ]
   },
   "C5": {
    "name": "导师教练与系统工具",
-   "count": 14,
+   "count": 18,
    "experts": [
     "ericsson",
     "leonard",
@@ -171,12 +203,16 @@
     "ferriss",
     "gould",
     "clear",
-    "biles"
+    "biles",
+    "wujun",
+    "yujun",
+    "tuoyouyou",
+    "yaoming"
    ]
   },
   "C6": {
    "name": "心智模型与第一性原理（底层思维）",
-   "count": 10,
+   "count": 19,
    "experts": [
     "munger",
     "musk",
@@ -187,12 +223,21 @@
     "torvalds",
     "ferriss",
     "wilson",
-    "musashi"
+    "musashi",
+    "xiaolai",
+    "wujun",
+    "duanyongping",
+    "yujun",
+    "caizhizhong",
+    "brucelee",
+    "renzhengfei",
+    "zhangyiming",
+    "yangzhenning"
    ]
   },
   "C7": {
    "name": "成长思维与拥抱失败（复原力）",
-   "count": 24,
+   "count": 35,
    "experts": [
     "ericsson",
     "duckworth",
@@ -217,12 +262,23 @@
     "wilson",
     "aurelius",
     "goggins",
-    "biles"
+    "biles",
+    "xiaolai",
+    "duanyongping",
+    "brucelee",
+    "renzhengfei",
+    "mayun",
+    "zhangyiming",
+    "zhongnanshan",
+    "tuoyouyou",
+    "moyan",
+    "lian",
+    "yaoming"
    ]
   },
   "C8": {
    "name": "坚毅坚持与长期主义",
-   "count": 15,
+   "count": 23,
    "experts": [
     "duckworth",
     "leonard",
@@ -238,12 +294,20 @@
     "wilson",
     "buffett",
     "goggins",
-    "biles"
+    "biles",
+    "duanyongping",
+    "renzhengfei",
+    "mayun",
+    "zhangyiming",
+    "zhongnanshan",
+    "tuoyouyou",
+    "lian",
+    "yaoming"
    ]
   },
   "C9": {
    "name": "方向选择与做对的事（能力圈）",
-   "count": 22,
+   "count": 32,
    "experts": [
     "newport",
     "epstein",
@@ -266,24 +330,39 @@
     "buffett",
     "musashi",
     "aurelius",
-    "biles"
+    "biles",
+    "xiaolai",
+    "wujun",
+    "duanyongping",
+    "yujun",
+    "caizhizhong",
+    "renzhengfei",
+    "mayun",
+    "zhangyiming",
+    "zhongnanshan",
+    "yangzhenning"
    ]
   },
   "C10": {
    "name": "不可替代与特定知识（世界最好）",
-   "count": 6,
+   "count": 11,
    "experts": [
     "newport",
     "godin",
     "naval",
     "adria",
     "wilson",
-    "buffett"
+    "buffett",
+    "duanyongping",
+    "caizhizhong",
+    "brucelee",
+    "moyan",
+    "lian"
    ]
   },
   "C11": {
    "name": "阅读与持续学习（学习机器）",
-   "count": 11,
+   "count": 20,
    "experts": [
     "ericsson",
     "dweck",
@@ -295,12 +374,21 @@
     "greene",
     "ferriss",
     "king",
-    "buffett"
+    "buffett",
+    "wujun",
+    "yujun",
+    "caizhizhong",
+    "renzhengfei",
+    "zhangyiming",
+    "zhongnanshan",
+    "tuoyouyou",
+    "moyan",
+    "lian"
    ]
   },
   "C12": {
    "name": "跨界通才与类比迁移",
-   "count": 12,
+   "count": 19,
    "experts": [
     "newport",
     "waitzkin",
@@ -313,12 +401,19 @@
     "federer",
     "goodall",
     "wilson",
-    "musashi"
+    "musashi",
+    "yujun",
+    "caizhizhong",
+    "brucelee",
+    "renzhengfei",
+    "mayun",
+    "tuoyouyou",
+    "moyan"
    ]
   },
   "C13": {
    "name": "内驱热爱与目的感",
-   "count": 21,
+   "count": 31,
    "experts": [
     "duckworth",
     "newport",
@@ -340,12 +435,22 @@
     "mcclintock",
     "wilson",
     "aurelius",
-    "goggins"
+    "goggins",
+    "yujun",
+    "caizhizhong",
+    "renzhengfei",
+    "mayun",
+    "zhongnanshan",
+    "yangzhenning",
+    "tuoyouyou",
+    "moyan",
+    "lian",
+    "yaoming"
    ]
   },
   "C14": {
    "name": "杠杆与时间自由（减法）",
-   "count": 15,
+   "count": 20,
    "experts": [
     "newport",
     "gawande",
@@ -361,12 +466,17 @@
     "gould",
     "pressfield",
     "clear",
-    "buffett"
+    "buffett",
+    "xiaolai",
+    "wujun",
+    "duanyongping",
+    "brucelee",
+    "renzhengfei"
    ]
   },
   "C15": {
    "name": "过程导向与身份认同",
-   "count": 28,
+   "count": 38,
    "experts": [
     "waitzkin",
     "leonard",
@@ -395,12 +505,22 @@
     "musashi",
     "aurelius",
     "goggins",
-    "biles"
+    "biles",
+    "xiaolai",
+    "duanyongping",
+    "caizhizhong",
+    "brucelee",
+    "zhangyiming",
+    "yangzhenning",
+    "tuoyouyou",
+    "moyan",
+    "lian",
+    "yaoming"
    ]
   },
   "C16": {
    "name": "教学外化与诚实不自欺（行动）",
-   "count": 27,
+   "count": 39,
    "experts": [
     "waitzkin",
     "epstein",
@@ -428,22 +548,35 @@
     "buffett",
     "musashi",
     "aurelius",
-    "goggins"
+    "goggins",
+    "xiaolai",
+    "duanyongping",
+    "yujun",
+    "caizhizhong",
+    "brucelee",
+    "renzhengfei",
+    "mayun",
+    "zhongnanshan",
+    "tuoyouyou",
+    "moyan",
+    "lian",
+    "yaoming"
    ]
   },
   "C17": {
    "name": "环境机遇与系统性条件",
-   "count": 4,
+   "count": 5,
    "experts": [
     "gladwell",
     "epstein",
     "kahneman",
-    "konnikova"
+    "konnikova",
+    "yaoming"
    ]
   }
  },
  "AUTH_STATS": {
-  "亲历": 281,
+  "亲历": 379,
   "借鉴": 20,
   "共识": 2
  },
@@ -637,6 +770,66 @@
   "aurelius": {
    "tier": "低效度",
    "cluster": "哲学与内在修炼"
+  },
+  "xiaolai": {
+   "tier": "低效度",
+   "cluster": "投资预测"
+  },
+  "wujun": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "duanyongping": {
+   "tier": "低效度",
+   "cluster": "投资预测"
+  },
+  "yujun": {
+   "tier": "中效度",
+   "cluster": "创业工程"
+  },
+  "caizhizhong": {
+   "tier": "高效度",
+   "cluster": "工艺创造"
+  },
+  "brucelee": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "renzhengfei": {
+   "tier": "中效度",
+   "cluster": "创业工程"
+  },
+  "mayun": {
+   "tier": "中效度",
+   "cluster": "创业工程"
+  },
+  "zhangyiming": {
+   "tier": "中效度",
+   "cluster": "创业工程"
+  },
+  "zhongnanshan": {
+   "tier": "中效度",
+   "cluster": "医学诊断"
+  },
+  "yangzhenning": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "tuoyouyou": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "moyan": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "lian": {
+   "tier": "中效度",
+   "cluster": "表演艺术"
+  },
+  "yaoming": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
   }
  },
  "experts": [
@@ -653,6 +846,8 @@
    "income": "学者薪级（15–25万美元）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "瑞典",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "system"
@@ -731,6 +926,8 @@
    "income": "数百万至千万级（300–800万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "英国",
+   "countryWork": "美国",
    "schools": [
     "practice"
    ],
@@ -802,6 +999,8 @@
    "income": "十万至百万美元级（30–60万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "mindset"
    ],
@@ -873,6 +1072,8 @@
    "income": "十万至百万美元级（30–60万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "mindset"
    ],
@@ -943,6 +1144,8 @@
    "income": "十万至百万美元级（100–300万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "strategy",
     "action"
@@ -1017,6 +1220,8 @@
    "income": "十万至百万美元级（30–100万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "mindset",
@@ -1090,6 +1295,8 @@
    "income": "学者薪级（已故）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "mindset",
@@ -1165,6 +1372,8 @@
    "income": "十万至百万美元级（30–100万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "generalist",
     "strategy"
@@ -1239,6 +1448,8 @@
    "income": "十万至百万美元级（50–200万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "system",
     "mindset"
@@ -1312,6 +1523,8 @@
    "income": "数百万至千万级（100–500万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "strategy",
     "action",
@@ -1387,6 +1600,8 @@
    "income": "数百万至千万级（200–800万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "mindset",
     "action"
@@ -1460,6 +1675,8 @@
    "income": "数百万至千万级（100–500万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "action",
     "mindset"
@@ -1535,6 +1752,8 @@
    "income": "亿美元以上（约26亿美元）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "generalist",
@@ -1616,6 +1835,8 @@
    "income": "亿美元以上（千亿美元级）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "南非",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "generalist",
@@ -1689,6 +1910,8 @@
    "income": "学者薪级（中产）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "action"
@@ -1769,6 +1992,8 @@
    "income": "千万至亿美元级",
    "incomeTier": 4,
    "region": "西方",
+   "countryBirth": "印度",
+   "countryWork": "美国",
    "schools": [
     "strategy",
     "action"
@@ -1848,6 +2073,8 @@
    "income": "学者薪级（15–25万美元）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "匈牙利",
+   "countryWork": "美国",
    "schools": [
     "mindset",
     "practice"
@@ -1922,6 +2149,8 @@
    "income": "十万至百万美元级（50–100万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "以色列",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "system"
@@ -1988,6 +2217,8 @@
    "income": "十万至百万美元级（10–30万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "system"
@@ -2059,6 +2290,8 @@
    "income": "十万至百万美元级（15–40万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "俄罗斯",
+   "countryWork": "美国",
    "schools": [
     "mindset",
     "system"
@@ -2136,6 +2369,8 @@
    "income": "数百万至千万级（数百万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "苏联",
+   "countryWork": "俄罗斯",
    "schools": [
     "thinking",
     "practice",
@@ -2212,6 +2447,8 @@
    "income": "亿美元以上（约6亿美元）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "action"
@@ -2287,6 +2524,8 @@
    "income": "亿美元以上（约3亿美元）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "mindset",
     "practice"
@@ -2363,6 +2602,8 @@
    "income": "亿美元以上（约5.5亿美元）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "瑞士",
+   "countryWork": "瑞士",
    "schools": [
     "practice",
     "mindset"
@@ -2438,6 +2679,8 @@
    "income": "十万至百万美元级（50–100万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "英国",
+   "countryWork": "英国",
    "schools": [
     "practice",
     "mindset"
@@ -2506,6 +2749,8 @@
    "income": "十万至百万美元级（20–50万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "德国",
+   "countryWork": "德国",
    "schools": [
     "strategy",
     "action"
@@ -2573,6 +2818,8 @@
    "income": "数百万至千万级（300–800万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "西班牙",
+   "countryWork": "西班牙",
    "schools": [
     "practice",
     "action"
@@ -2641,6 +2888,8 @@
    "income": "数百万至千万级（100–200万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "芬兰",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "action",
@@ -2716,6 +2965,8 @@
    "income": "数百万至千万级（200–500万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "mindset",
@@ -2792,6 +3043,8 @@
    "income": "千万至亿美元级（500–2000万美元）",
    "incomeTier": 4,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "strategy",
     "action"
@@ -2875,6 +3128,8 @@
    "income": "数百万至千万级（100–300万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "action",
     "practice"
@@ -2949,6 +3204,8 @@
    "income": "历史人物（剧院收入）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "俄罗斯",
+   "countryWork": "俄罗斯",
    "schools": [
     "system",
     "action"
@@ -3023,6 +3280,8 @@
    "income": "十万至百万美元级（15–40万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "加拿大",
+   "countryWork": "加拿大",
    "schools": [
     "practice",
     "mindset"
@@ -3099,6 +3358,8 @@
    "income": "千万至亿美元级（2000–4000万美元）",
    "incomeTier": 4,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "action"
@@ -3182,6 +3443,8 @@
    "income": "十万至百万美元级（50–200万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "action",
     "mindset"
@@ -3266,6 +3529,8 @@
    "income": "千万至亿美元级（500–2000万美元）",
    "incomeTier": 4,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "system",
     "action"
@@ -3348,6 +3613,8 @@
    "income": "学者薪级（2–5万美元）",
    "incomeTier": 1,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "mindset",
     "practice"
@@ -3416,6 +3683,8 @@
    "income": "十万至百万美元级（20–60万美元）",
    "incomeTier": 2,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "strategy",
     "mindset"
@@ -3484,6 +3753,8 @@
    "income": "亿美元以上（1300–1500亿美元）",
    "incomeTier": 5,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "thinking",
     "strategy"
@@ -3552,6 +3823,8 @@
    "income": "历史人物（收入不适用）",
    "incomeTier": 1,
    "region": "日本",
+   "countryBirth": "日本",
+   "countryWork": "日本",
    "schools": [
     "practice",
     "mindset"
@@ -3635,6 +3908,8 @@
    "income": "历史人物（收入不适用）",
    "incomeTier": 1,
    "region": "古罗马",
+   "countryBirth": "罗马",
+   "countryWork": "罗马",
    "schools": [
     "mindset",
     "system"
@@ -3711,6 +3986,8 @@
    "income": "数百万至千万级（100–500万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "mindset"
@@ -3787,6 +4064,8 @@
    "income": "数百万至千万级（800–1500万美元）",
    "incomeTier": 3,
    "region": "西方",
+   "countryBirth": "美国",
+   "countryWork": "美国",
    "schools": [
     "practice",
     "mindset"
@@ -3845,6 +4124,1122 @@
      "c": [
       "C7",
       "C1"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "xiaolai",
+   "name": "Li Xiaolai",
+   "nameZh": "李笑来",
+   "gender": "男",
+   "birth": 1972,
+   "died": null,
+   "age": 54,
+   "ageBracket": "50-64",
+   "field": "思想写作与传播",
+   "income": "千万至亿级（波动大）",
+   "incomeTier": 4,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "成长优于成功",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "时间不可管理，管理自己",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "心智是底层差异",
+     "c": [
+      "C6",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "一切学习靠积累",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "注意力是最稀缺资源",
+     "c": [
+      "C3",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "行动闭环知识",
+     "c": [
+      "C16",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "升级个人商业模式",
+     "c": [
+      "C14",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "wujun",
+   "name": "Wu Jun",
+   "nameZh": "吴军",
+   "gender": "男",
+   "birth": 1967,
+   "died": null,
+   "age": 59,
+   "ageBracket": "50-64",
+   "field": "计算机与工程科技",
+   "income": "十万至百万美元级（30–100万美元）",
+   "incomeTier": 2,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "美国",
+   "schools": [
+    "thinking",
+    "practice",
+    "strategy"
+   ],
+   "viewpoints": [
+    {
+     "t": "见识决定命运",
+     "c": [
+      "C9",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "做减法优先于加法",
+     "c": [
+      "C14",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "复利式投入",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "底层能力大于表面技巧",
+     "c": [
+      "C6",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "方向比努力重要",
+     "c": [
+      "C9",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "工程师五级论",
+     "c": [
+      "C1",
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "阅读是提升见识的第一路径",
+     "c": [
+      "C11",
+      "C6"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "duanyongping",
+   "name": "Duan Yongping",
+   "nameZh": "段永平",
+   "gender": "男",
+   "birth": 1961,
+   "died": null,
+   "age": 65,
+   "ageBracket": "65+",
+   "field": "投资与金融",
+   "income": "亿美元以上",
+   "incomeTier": 5,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "美国",
+   "schools": [
+    "strategy",
+    "thinking"
+   ],
+   "viewpoints": [
+    {
+     "t": "先做对的事，再把事做对",
+     "c": [
+      "C9",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "本分：回归本质不走捷径",
+     "c": [
+      "C16",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "Stop Doing List 优先",
+     "c": [
+      "C14",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "能力圈边界意识",
+     "c": [
+      "C9",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "长期主义与集中投入",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "简单优于复杂",
+     "c": [
+      "C6",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "护城河意识",
+     "c": [
+      "C10",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "yujun",
+   "name": "Yu Jun",
+   "nameZh": "俞军",
+   "gender": "男",
+   "birth": 1974,
+   "died": null,
+   "age": 52,
+   "ageBracket": "50-64",
+   "field": "计算机与工程科技",
+   "income": "十万至百万美元级（30–100万美元）",
+   "incomeTier": 2,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "system",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "用户价值公式",
+     "c": [
+      "C6",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "决策能力是核心",
+     "c": [
+      "C6",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "自我学习占成长50%",
+     "c": [
+      "C11",
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨学科阅读构建底层框架",
+     "c": [
+      "C11",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "理性+同理心+直觉",
+     "c": [
+      "C12",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "用户是需求的集合",
+     "c": [
+      "C6",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "用户代言人定位",
+     "c": [
+      "C13",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "caizhizhong",
+   "name": "Cai Zhizhong",
+   "nameZh": "蔡志忠",
+   "gender": "男",
+   "birth": 1948,
+   "died": null,
+   "age": 78,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "十万至百万美元级（估算）",
+   "incomeTier": 2,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "早立志锁定一生方向",
+     "c": [
+      "C9",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "找到天赋所在",
+     "c": [
+      "C9",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "做到极致成为世界第一",
+     "c": [
+      "C10",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "置心一处极端时间投入",
+     "c": [
+      "C3",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "化繁为简的精通标准",
+     "c": [
+      "C6",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨域贯通助力极致",
+     "c": [
+      "C12",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "热爱驱动而非意志力驱动",
+     "c": [
+      "C13",
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "brucelee",
+   "name": "Bruce Lee",
+   "nameZh": "李小龙",
+   "gender": "男",
+   "birth": 1940,
+   "died": 1973,
+   "age": 33,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "学者薪级（已故）",
+   "incomeTier": 1,
+   "region": "中国",
+   "countryBirth": "美国",
+   "countryWork": "中国",
+   "schools": [
+    "practice",
+    "thinking",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "知行合一行动优先",
+     "c": [
+      "C16",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "一种腿法练一万次",
+     "c": [
+      "C1",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "像水一样",
+     "c": [
+      "C6",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "三阶段修炼曲线",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "做你自己不复制他人",
+     "c": [
+      "C10",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以无法为有法",
+     "c": [
+      "C14",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "身体即表达",
+     "c": [
+      "C1",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "哲学根基武学贯通",
+     "c": [
+      "C6",
+      "C12"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "renzhengfei",
+   "name": "Ren Zhengfei",
+   "nameZh": "任正非",
+   "gender": "男",
+   "birth": 1944,
+   "died": null,
+   "age": 82,
+   "ageBracket": "65+",
+   "field": "计算机与工程科技",
+   "income": "亿美元以上",
+   "incomeTier": 5,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "strategy",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "以客户为中心",
+     "c": [
+      "C13",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "自我批判",
+     "c": [
+      "C16",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "板凳要坐十年冷",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "力出一孔",
+     "c": [
+      "C3",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "灰度哲学",
+     "c": [
+      "C6",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "一杯咖啡吸收宇宙能量",
+     "c": [
+      "C11",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "方向大致正确组织充满活力",
+     "c": [
+      "C9",
+      "C8"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "mayun",
+   "name": "Jack Ma",
+   "nameZh": "马云",
+   "gender": "男",
+   "birth": 1964,
+   "died": null,
+   "age": 62,
+   "ageBracket": "50-64",
+   "field": "计算机与工程科技",
+   "income": "亿美元以上",
+   "incomeTier": 5,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "因为相信所以看见",
+     "c": [
+      "C13",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "今天很残酷明天更残酷",
+     "c": [
+      "C8",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "使命驱动",
+     "c": [
+      "C13",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "拥抱变化",
+     "c": [
+      "C7",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "102年的企业",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "最大的敌人是自己",
+     "c": [
+      "C8",
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "zhangyiming",
+   "name": "Zhang Yiming",
+   "nameZh": "张一鸣",
+   "gender": "男",
+   "birth": 1983,
+   "died": null,
+   "age": 43,
+   "ageBracket": "30-49",
+   "field": "计算机与工程科技",
+   "income": "亿美元以上",
+   "incomeTier": 5,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "thinking",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "延迟满足感",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "平常心做非常事",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "大力出奇迹",
+     "c": [
+      "C1",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "第一性原理",
+     "c": [
+      "C6",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "信息效率决定一切",
+     "c": [
+      "C6",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "始终创业",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "zhongnanshan",
+   "name": "Zhong Nanshan",
+   "nameZh": "钟南山",
+   "gender": "男",
+   "birth": 1936,
+   "died": null,
+   "age": 90,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "学者薪级",
+   "incomeTier": 1,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "system",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "说真话做实事",
+     "c": [
+      "C16",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "医学是实践的科学",
+     "c": [
+      "C1",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "顶天立地",
+     "c": [
+      "C1",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "终身学习终身锻炼",
+     "c": [
+      "C2",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "看病不是看机器是看病人",
+     "c": [
+      "C13",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "使命担当",
+     "c": [
+      "C13",
+      "C8"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "yangzhenning",
+   "name": "Chen-Ning Yang",
+   "nameZh": "杨振宁",
+   "gender": "男",
+   "birth": 1922,
+   "died": null,
+   "age": 104,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "学者薪级",
+   "incomeTier": 1,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "美国",
+   "schools": [
+    "thinking",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "宁拙毋巧宁朴毋华",
+     "c": [
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "选对方向是第一要素",
+     "c": [
+      "C9",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "直觉来自长期积累",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "科学品味",
+     "c": [
+      "C6",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "对称性思维",
+     "c": [
+      "C6",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "家国情怀",
+     "c": [
+      "C13",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "tuoyouyou",
+   "name": "Tu Youyou",
+   "nameZh": "屠呦呦",
+   "gender": "女",
+   "birth": 1930,
+   "died": null,
+   "age": 96,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "学者薪级",
+   "incomeTier": 1,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "practice",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "坚持是成功的最后一块拼图",
+     "c": [
+      "C8",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "向经典学习",
+     "c": [
+      "C11",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "集体成就观",
+     "c": [
+      "C5",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨域类比",
+     "c": [
+      "C12",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "耐得住寂寞",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以身试药的科学勇气",
+     "c": [
+      "C7",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "moyan",
+   "name": "Mo Yan",
+   "nameZh": "莫言",
+   "gender": "男",
+   "birth": 1955,
+   "died": null,
+   "age": 71,
+   "ageBracket": "65+",
+   "field": "思想写作与传播",
+   "income": "数百万至千万级",
+   "incomeTier": 3,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "practice",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "诚实是文学的底线",
+     "c": [
+      "C16",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "扎根生活",
+     "c": [
+      "C11",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "找到自己的声音",
+     "c": [
+      "C10",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "写作是长期艰苦劳动",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "讲故事的人",
+     "c": [
+      "C16",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "想象力与生活经验双引擎",
+     "c": [
+      "C12",
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "lian",
+   "name": "Ang Lee",
+   "nameZh": "李安",
+   "gender": "男",
+   "birth": 1954,
+   "died": null,
+   "age": 72,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "数百万至千万级",
+   "incomeTier": 3,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "美国",
+   "schools": [
+    "action",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "永远当学生",
+     "c": [
+      "C11",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "恐惧即燃料",
+     "c": [
+      "C7",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "压力下发挥",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "真诚第一",
+     "c": [
+      "C16",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "修行式坚持",
+     "c": [
+      "C15",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "作者性",
+     "c": [
+      "C10",
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "yaoming",
+   "name": "Yao Ming",
+   "nameZh": "姚明",
+   "gender": "男",
+   "birth": 1980,
+   "died": null,
+   "age": 46,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "数百万至千万级",
+   "incomeTier": 3,
+   "region": "中国",
+   "countryBirth": "中国",
+   "countryWork": "中国",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "天赋决定上限努力决定下限",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "科学化训练改造",
+     "c": [
+      "C1",
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "团队优先",
+     "c": [
+      "C5",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "压力即成长",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "身份认同",
+     "c": [
+      "C15",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "体系大于天才",
+     "c": [
+      "C17",
+      "C5"
      ],
      "auth": "亲历"
     }

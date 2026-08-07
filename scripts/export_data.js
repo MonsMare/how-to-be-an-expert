@@ -26,6 +26,7 @@ const out = {
     id: e.id, name: e.name, nameZh: e.nameZh, gender: e.gender,
     birth: e.birth, died: e.died, age: e.age, ageBracket: e.ageBracket,
     field: e.field, income: e.income, incomeTier: e.incomeTier, region: e.region,
+    countryBirth: e.countryBirth, countryWork: e.countryWork,
     schools: e.schools,
     viewpoints: e.viewpoints.map(v => ({ t: v.t, c: v.c, auth: v.auth })),
   })),
