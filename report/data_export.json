@@ -1,0 +1,3854 @@
+{
+ "meta": {
+  "nExperts": 43,
+  "totalViewpoints": 303,
+  "nCats": 17,
+  "nSchools": 7,
+  "nClusters": 11
+ },
+ "CAT": {
+  "C1": "刻意练习与高质量训练",
+  "C2": "时间投入与长期积累（复利）",
+  "C3": "专注深度与置心一处",
+  "C4": "反馈测量与闭环",
+  "C5": "导师教练与系统工具",
+  "C6": "心智模型与第一性原理（底层思维）",
+  "C7": "成长思维与拥抱失败（复原力）",
+  "C8": "坚毅坚持与长期主义",
+  "C9": "方向选择与做对的事（能力圈）",
+  "C10": "不可替代与特定知识（世界最好）",
+  "C11": "阅读与持续学习（学习机器）",
+  "C12": "跨界通才与类比迁移",
+  "C13": "内驱热爱与目的感",
+  "C14": "杠杆与时间自由（减法）",
+  "C15": "过程导向与身份认同",
+  "C16": "教学外化与诚实不自欺（行动）",
+  "C17": "环境机遇与系统性条件"
+ },
+ "AUTH": {
+  "亲历": "基于自身经历/研究/实践的原创思考，非人云亦云",
+  "借鉴": "显式借用他人观点（已注明出处），非原创但非盲目附和",
+  "共识": "接近通用常识/人云亦云，缺乏独特个人经验支撑"
+ },
+ "SCHOOLS": {
+  "practice": "练习学派（高质量重复）",
+  "thinking": "思维学派（心智模型·第一性原理）",
+  "mindset": "心性学派（成长·坚毅·脆弱）",
+  "strategy": "战略学派（方向·杠杆·不可替代）",
+  "generalist": "通才学派（跨界·采样·类比）",
+  "action": "行动学派（外化·交付·不自欺）",
+  "system": "系统学派（反馈·导师·清单）"
+ },
+ "CAT_STATS": {
+  "C1": {
+   "name": "刻意练习与高质量训练",
+   "count": 28,
+   "experts": [
+    "ericsson",
+    "gladwell",
+    "dweck",
+    "waitzkin",
+    "leonard",
+    "godin",
+    "csikszentmihalyi",
+    "kahneman",
+    "coyle",
+    "konnikova",
+    "kasparov",
+    "kobe",
+    "serena",
+    "federer",
+    "rams",
+    "adria",
+    "torvalds",
+    "greene",
+    "ferriss",
+    "tharp",
+    "stanislavski",
+    "king",
+    "pressfield",
+    "clear",
+    "mcclintock",
+    "musashi",
+    "goggins",
+    "biles"
+   ]
+  },
+  "C2": {
+   "name": "时间投入与长期积累（复利）",
+   "count": 30,
+   "experts": [
+    "gladwell",
+    "duckworth",
+    "leonard",
+    "gawande",
+    "godin",
+    "angelou",
+    "munger",
+    "musk",
+    "feynman",
+    "naval",
+    "csikszentmihalyi",
+    "kobe",
+    "serena",
+    "federer",
+    "goodall",
+    "rams",
+    "adria",
+    "greene",
+    "tharp",
+    "gould",
+    "king",
+    "pressfield",
+    "clear",
+    "mcclintock",
+    "wilson",
+    "buffett",
+    "musashi",
+    "aurelius",
+    "goggins",
+    "biles"
+   ]
+  },
+  "C3": {
+   "name": "专注深度与置心一处",
+   "count": 15,
+   "experts": [
+    "newport",
+    "waitzkin",
+    "angelou",
+    "feynman",
+    "csikszentmihalyi",
+    "konnikova",
+    "kobe",
+    "goodall",
+    "rams",
+    "adria",
+    "tharp",
+    "gould",
+    "mcclintock",
+    "musashi",
+    "aurelius"
+   ]
+  },
+  "C4": {
+   "name": "反馈测量与闭环",
+   "count": 17,
+   "experts": [
+    "ericsson",
+    "gawande",
+    "angelou",
+    "feynman",
+    "kahneman",
+    "coyle",
+    "konnikova",
+    "kasparov",
+    "kobe",
+    "federer",
+    "adria",
+    "torvalds",
+    "gould",
+    "king",
+    "mcclintock",
+    "aurelius",
+    "goggins"
+   ]
+  },
+  "C5": {
+   "name": "导师教练与系统工具",
+   "count": 14,
+   "experts": [
+    "ericsson",
+    "leonard",
+    "gawande",
+    "brown",
+    "coyle",
+    "konnikova",
+    "kasparov",
+    "rams",
+    "torvalds",
+    "greene",
+    "ferriss",
+    "gould",
+    "clear",
+    "biles"
+   ]
+  },
+  "C6": {
+   "name": "心智模型与第一性原理（底层思维）",
+   "count": 10,
+   "experts": [
+    "munger",
+    "musk",
+    "feynman",
+    "kahneman",
+    "kasparov",
+    "rams",
+    "torvalds",
+    "ferriss",
+    "wilson",
+    "musashi"
+   ]
+  },
+  "C7": {
+   "name": "成长思维与拥抱失败（复原力）",
+   "count": 24,
+   "experts": [
+    "ericsson",
+    "duckworth",
+    "dweck",
+    "waitzkin",
+    "gawande",
+    "godin",
+    "brown",
+    "musk",
+    "csikszentmihalyi",
+    "kahneman",
+    "coyle",
+    "konnikova",
+    "serena",
+    "federer",
+    "greene",
+    "ferriss",
+    "tharp",
+    "stanislavski",
+    "king",
+    "pressfield",
+    "wilson",
+    "aurelius",
+    "goggins",
+    "biles"
+   ]
+  },
+  "C8": {
+   "name": "坚毅坚持与长期主义",
+   "count": 15,
+   "experts": [
+    "duckworth",
+    "leonard",
+    "gawande",
+    "godin",
+    "munger",
+    "kobe",
+    "serena",
+    "ferriss",
+    "pressfield",
+    "clear",
+    "mcclintock",
+    "wilson",
+    "buffett",
+    "goggins",
+    "biles"
+   ]
+  },
+  "C9": {
+   "name": "方向选择与做对的事（能力圈）",
+   "count": 22,
+   "experts": [
+    "newport",
+    "epstein",
+    "gawande",
+    "godin",
+    "munger",
+    "naval",
+    "kahneman",
+    "konnikova",
+    "kasparov",
+    "kobe",
+    "goodall",
+    "rams",
+    "adria",
+    "torvalds",
+    "greene",
+    "ferriss",
+    "gould",
+    "wilson",
+    "buffett",
+    "musashi",
+    "aurelius",
+    "biles"
+   ]
+  },
+  "C10": {
+   "name": "不可替代与特定知识（世界最好）",
+   "count": 6,
+   "experts": [
+    "newport",
+    "godin",
+    "naval",
+    "adria",
+    "wilson",
+    "buffett"
+   ]
+  },
+  "C11": {
+   "name": "阅读与持续学习（学习机器）",
+   "count": 11,
+   "experts": [
+    "ericsson",
+    "dweck",
+    "newport",
+    "munger",
+    "musk",
+    "feynman",
+    "naval",
+    "greene",
+    "ferriss",
+    "king",
+    "buffett"
+   ]
+  },
+  "C12": {
+   "name": "跨界通才与类比迁移",
+   "count": 12,
+   "experts": [
+    "newport",
+    "waitzkin",
+    "epstein",
+    "gawande",
+    "munger",
+    "musk",
+    "csikszentmihalyi",
+    "kasparov",
+    "federer",
+    "goodall",
+    "wilson",
+    "musashi"
+   ]
+  },
+  "C13": {
+   "name": "内驱热爱与目的感",
+   "count": 21,
+   "experts": [
+    "duckworth",
+    "newport",
+    "epstein",
+    "godin",
+    "angelou",
+    "musk",
+    "feynman",
+    "naval",
+    "csikszentmihalyi",
+    "coyle",
+    "federer",
+    "goodall",
+    "torvalds",
+    "greene",
+    "tharp",
+    "gould",
+    "king",
+    "mcclintock",
+    "wilson",
+    "aurelius",
+    "goggins"
+   ]
+  },
+  "C14": {
+   "name": "杠杆与时间自由（减法）",
+   "count": 15,
+   "experts": [
+    "newport",
+    "gawande",
+    "godin",
+    "munger",
+    "naval",
+    "csikszentmihalyi",
+    "konnikova",
+    "federer",
+    "rams",
+    "torvalds",
+    "ferriss",
+    "gould",
+    "pressfield",
+    "clear",
+    "buffett"
+   ]
+  },
+  "C15": {
+   "name": "过程导向与身份认同",
+   "count": 28,
+   "experts": [
+    "waitzkin",
+    "leonard",
+    "gawande",
+    "godin",
+    "brown",
+    "angelou",
+    "munger",
+    "csikszentmihalyi",
+    "konnikova",
+    "kobe",
+    "serena",
+    "federer",
+    "goodall",
+    "rams",
+    "adria",
+    "greene",
+    "tharp",
+    "stanislavski",
+    "gould",
+    "king",
+    "pressfield",
+    "clear",
+    "mcclintock",
+    "wilson",
+    "musashi",
+    "aurelius",
+    "goggins",
+    "biles"
+   ]
+  },
+  "C16": {
+   "name": "教学外化与诚实不自欺（行动）",
+   "count": 27,
+   "experts": [
+    "waitzkin",
+    "epstein",
+    "godin",
+    "brown",
+    "angelou",
+    "munger",
+    "musk",
+    "feynman",
+    "kahneman",
+    "konnikova",
+    "kasparov",
+    "kobe",
+    "goodall",
+    "rams",
+    "adria",
+    "torvalds",
+    "greene",
+    "ferriss",
+    "stanislavski",
+    "gould",
+    "king",
+    "pressfield",
+    "mcclintock",
+    "buffett",
+    "musashi",
+    "aurelius",
+    "goggins"
+   ]
+  },
+  "C17": {
+   "name": "环境机遇与系统性条件",
+   "count": 4,
+   "experts": [
+    "gladwell",
+    "epstein",
+    "kahneman",
+    "konnikova"
+   ]
+  }
+ },
+ "AUTH_STATS": {
+  "亲历": 281,
+  "借鉴": 20,
+  "共识": 2
+ },
+ "TIERS": {
+  "高效度": "友好环境——快速诚实反馈、模式稳定重复（刻意练习+心智数据库有效）",
+  "中效度": "混合环境——反馈存在但嘈杂/社会中介/长周期（需两种策略叠加）",
+  "低效度": "恶劣环境——反馈延迟/缺失/被运气扭曲（刻意练习会加固错误，须概率谦逊+多模型）"
+ },
+ "CLUSTER_ORDER": [
+  "竞技与认知竞技",
+  "工艺创造",
+  "表演艺术",
+  "医学诊断",
+  "决策博弈",
+  "田野观察",
+  "创业工程",
+  "科研探索",
+  "写作传播",
+  "投资预测",
+  "哲学与内在修炼"
+ ],
+ "DOMAIN": {
+  "kasparov": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "waitzkin": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "leonard": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "kobe": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "serena": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "federer": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "adria": {
+   "tier": "高效度",
+   "cluster": "工艺创造"
+  },
+  "rams": {
+   "tier": "高效度",
+   "cluster": "工艺创造"
+  },
+  "torvalds": {
+   "tier": "高效度",
+   "cluster": "工艺创造"
+  },
+  "gawande": {
+   "tier": "中效度",
+   "cluster": "医学诊断"
+  },
+  "konnikova": {
+   "tier": "中效度",
+   "cluster": "决策博弈"
+  },
+  "goodall": {
+   "tier": "中效度",
+   "cluster": "田野观察"
+  },
+  "musk": {
+   "tier": "中效度",
+   "cluster": "创业工程"
+  },
+  "munger": {
+   "tier": "低效度",
+   "cluster": "投资预测"
+  },
+  "naval": {
+   "tier": "低效度",
+   "cluster": "投资预测"
+  },
+  "ericsson": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "duckworth": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "dweck": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "csikszentmihalyi": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "kahneman": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "feynman": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "brown": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "gladwell": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "epstein": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "godin": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "angelou": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "newport": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "coyle": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "greene": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "ferriss": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "tharp": {
+   "tier": "中效度",
+   "cluster": "表演艺术"
+  },
+  "stanislavski": {
+   "tier": "中效度",
+   "cluster": "表演艺术"
+  },
+  "gould": {
+   "tier": "中效度",
+   "cluster": "表演艺术"
+  },
+  "musashi": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "goggins": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "biles": {
+   "tier": "高效度",
+   "cluster": "竞技与认知竞技"
+  },
+  "mcclintock": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "wilson": {
+   "tier": "低效度",
+   "cluster": "科研探索"
+  },
+  "buffett": {
+   "tier": "低效度",
+   "cluster": "投资预测"
+  },
+  "king": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "pressfield": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "clear": {
+   "tier": "低效度",
+   "cluster": "写作传播"
+  },
+  "aurelius": {
+   "tier": "低效度",
+   "cluster": "哲学与内在修炼"
+  }
+ },
+ "experts": [
+  {
+   "id": "ericsson",
+   "name": "Anders Ericsson",
+   "nameZh": "安德斯·埃里克森",
+   "gender": "男",
+   "birth": 1947,
+   "died": 2020,
+   "age": 72,
+   "ageBracket": "65+",
+   "field": "心理与认知科学",
+   "income": "学者薪级（15–25万美元）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "刻意练习而非简单重复",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "心理表征是专家的核心资产",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "走出舒适区是进步的必要条件",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "即时且高质量的反馈是闭环关键",
+     "c": [
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "导师/教练不可或缺",
+     "c": [
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "天赋神话可以解构",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "突破瓶颈靠方法变换而非蛮力",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "脑可塑性是终身学习的生理基础",
+     "c": [
+      "C7",
+      "C11"
+     ],
+     "auth": "借鉴"
+    }
+   ]
+  },
+  {
+   "id": "gladwell",
+   "name": "Malcolm Gladwell",
+   "nameZh": "马尔科姆·格拉德威尔",
+   "gender": "男",
+   "birth": 1963,
+   "died": null,
+   "age": 62,
+   "ageBracket": "50-64",
+   "field": "思想写作与传播",
+   "income": "数百万至千万级（300–800万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "一万小时是通往精通的魔力数字",
+     "c": [
+      "C2"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "实践先于天赋",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "机遇与时机是成功的隐形变量",
+     "c": [
+      "C17"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "累积优势（马太效应）塑造专家路径",
+     "c": [
+      "C17",
+      "C2"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "文化与社区背景为勤奋提供土壤",
+     "c": [
+      "C17"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "环境条件决定谁有可能累积练习时间",
+     "c": [
+      "C17"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成功者不是异类",
+     "c": [
+      "C17",
+      "C2"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "duckworth",
+   "name": "Angela Duckworth",
+   "nameZh": "安吉拉·达克沃斯",
+   "gender": "女",
+   "birth": 1970,
+   "died": null,
+   "age": 56,
+   "ageBracket": "50-64",
+   "field": "心理与认知科学",
+   "income": "十万至百万美元级（30–60万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "坚毅＝激情＋坚持",
+     "c": [
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "努力比天赋重要两倍",
+     "c": [
+      "C8",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "天赋的陷阱",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "兴趣是坚毅的情感起点",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "目的感为坚毅注入意义",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "希望是坚毅的韧性引擎",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "坚毅可培养",
+     "c": [
+      "C8"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "dweck",
+   "name": "Carol Dweck",
+   "nameZh": "卡罗尔·德韦克",
+   "gender": "女",
+   "birth": 1946,
+   "died": null,
+   "age": 79,
+   "ageBracket": "65+",
+   "field": "心理与认知科学",
+   "income": "十万至百万美元级（30–60万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "思维模式决定成就天花板",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成长型思维让努力变得有价值",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "'尚未'的力量",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "夸过程而非夸天赋",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成长型思维与脑可塑性同构",
+     "c": [
+      "C7",
+      "C11"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "拥抱挑战而非回避挑战",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "让批评与他人成功成为养料",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "newport",
+   "name": "Cal Newport",
+   "nameZh": "卡尔·纽波特",
+   "gender": "男",
+   "birth": 1982,
+   "died": null,
+   "age": 44,
+   "ageBracket": "30-49",
+   "field": "计算机与工程科技",
+   "income": "十万至百万美元级（100–300万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "深度工作是元技能",
+     "c": [
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "匠人式思维优于激情式思维",
+     "c": [
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "职业资本：稀有且有价值的能力",
+     "c": [
+      "C10",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "激情是精通的副产品而非起点",
+     "c": [
+      "C13",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "快速学习复杂事物的能力",
+     "c": [
+      "C11",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "排除浅层工作、保护注意力",
+     "c": [
+      "C3",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以'少而精'取代忙碌",
+     "c": [
+      "C14",
+      "C3"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "waitzkin",
+   "name": "Josh Waitzkin",
+   "nameZh": "乔什·维茨金",
+   "gender": "男",
+   "birth": 1976,
+   "died": null,
+   "age": 49,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "十万至百万美元级（30–100万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "投资于失败",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以原则内化超越表面记忆",
+     "c": [
+      "C1",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "画更小的圆——深度优于广度",
+     "c": [
+      "C3",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "过程优先于结果",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "身心一体",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "建立内在雷达",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "用伤痛做燃料",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "leonard",
+   "name": "George Leonard",
+   "nameZh": "乔治·伦纳德",
+   "gender": "男",
+   "birth": 1923,
+   "died": 2010,
+   "age": 86,
+   "ageBracket": "65+",
+   "field": "体育·竞技与修行",
+   "income": "学者薪级（已故）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "热爱高原期",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "练习即道路本身",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "终身旅程而非终点",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "五大精通之钥",
+     "c": [
+      "C5",
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "三种非精通者原型",
+     "c": [
+      "C8",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "当下的练习",
+     "c": [
+      "C15"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "反速成神话",
+     "c": [
+      "C2"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "epstein",
+   "name": "David Epstein",
+   "nameZh": "大卫·爱泼斯坦",
+   "gender": "男",
+   "birth": 1980,
+   "died": null,
+   "age": 46,
+   "ageBracket": "30-49",
+   "field": "思想写作与传播",
+   "income": "十万至百万美元级（30–100万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "generalist",
+    "strategy"
+   ],
+   "viewpoints": [
+    {
+     "t": "学习环境的'友好'与'恶劣'",
+     "c": [
+      "C9",
+      "C17"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "通才在恶劣环境中胜出",
+     "c": [
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "晚期专精优于早期专精",
+     "c": [
+      "C12",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "采样期的价值",
+     "c": [
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "类比思维是通才的核心武器",
+     "c": [
+      "C12",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "匹配质量先于承诺",
+     "c": [
+      "C9",
+      "C13"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "早期专精的隐性风险",
+     "c": [
+      "C12",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "gawande",
+   "name": "Atul Gawande",
+   "nameZh": "阿图·葛文德",
+   "gender": "男",
+   "birth": 1965,
+   "died": null,
+   "age": 60,
+   "ageBracket": "50-64",
+   "field": "医学与自然科学",
+   "income": "十万至百万美元级（50–200万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "system",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "勤勉而非天才",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通是相对而非绝对的",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "勤勉≠完美主义",
+     "c": [
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "卓越三要素：勤勉·守正·创新",
+     "c": [
+      "C2",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "系统优于个人英雄主义",
+     "c": [
+      "C5",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "测量与反馈是精进的引擎",
+     "c": [
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "向其他领域借力",
+     "c": [
+      "C12"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "godin",
+   "name": "Seth Godin",
+   "nameZh": "塞斯·戈丁",
+   "gender": "男",
+   "birth": 1960,
+   "died": null,
+   "age": 65,
+   "ageBracket": "65+",
+   "field": "思想写作与传播",
+   "income": "数百万至千万级（100–500万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "action",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "精通必须穿过'低谷期'",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "战略性放弃是精通的前提",
+     "c": [
+      "C9",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "只有'世界最好'才有超额回报",
+     "c": [
+      "C10"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "交付（Shipping）是精通的标志",
+     "c": [
+      "C16",
+      "C15"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "情感投入定义'真正的工作'",
+     "c": [
+      "C13",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通是实践而非天赋",
+     "c": [
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "选择值得精进的领域",
+     "c": [
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "brown",
+   "name": "Brené Brown",
+   "nameZh": "布琳·布朗",
+   "gender": "女",
+   "birth": 1965,
+   "died": null,
+   "age": 60,
+   "ageBracket": "50-64",
+   "field": "心理与认知科学",
+   "income": "数百万至千万级（200–800万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "mindset",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "脆弱是精通的起点",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "进入竞技场比旁观批评更接近卓越",
+     "c": [
+      "C7",
+      "C16"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "跌倒后复原是一种可训练的实践",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "'我已足够'是持续成长的心性基础",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "脆弱是一种可练习的日常行为",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "连接与求助是精通之路的必需",
+     "c": [
+      "C7",
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "羞耻是精进的最大障碍",
+     "c": [
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "angelou",
+   "name": "Maya Angelou",
+   "nameZh": "玛雅·安吉洛",
+   "gender": "女",
+   "birth": 1928,
+   "died": 2014,
+   "age": 86,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "数百万至千万级（100–500万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "action",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "精进的本质是认知迭代闭环",
+     "c": [
+      "C4",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "不投入则一切方法无效",
+     "c": [
+      "C16",
+      "C2"
+     ],
+     "auth": "共识"
+    },
+    {
+     "t": "创造力是用得越多越多的正向循环",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "纪律比灵感更可靠",
+     "c": [
+      "C2",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "未表达的故事是一种痛苦",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精进是为了优雅地生存",
+     "c": [
+      "C15",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "在沉默中积累，在表达中精进",
+     "c": [
+      "C2",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "munger",
+   "name": "Charlie Munger",
+   "nameZh": "查理·芒格",
+   "gender": "男",
+   "birth": 1924,
+   "died": 2023,
+   "age": 99,
+   "ageBracket": "65+",
+   "field": "投资与金融",
+   "income": "亿美元以上（约26亿美元）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "generalist",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "跨学科心智模型网格",
+     "c": [
+      "C6",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成为学习机器",
+     "c": [
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "持续精进，每日复利",
+     "c": [
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "广泛阅读是必要条件",
+     "c": [
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "逆向思考",
+     "c": [
+      "C9",
+      "C14"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "掌握人类误判心理学",
+     "c": [
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "配得上你想要的",
+     "c": [
+      "C8",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "用模型挂接经验",
+     "c": [
+      "C6",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "musk",
+   "name": "Elon Musk",
+   "nameZh": "埃隆·马斯克",
+   "gender": "男",
+   "birth": 1971,
+   "died": null,
+   "age": 55,
+   "ageBracket": "50-64",
+   "field": "计算机与工程科技",
+   "income": "亿美元以上（千亿美元级）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "generalist",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "第一性原理思维",
+     "c": [
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "语义树式学习",
+     "c": [
+      "C6",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "质疑假设与自我",
+     "c": [
+      "C6",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "极致工时密度",
+     "c": [
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨域迁移原理",
+     "c": [
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "把成本分解到原子级",
+     "c": [
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "未来信念驱动行动",
+     "c": [
+      "C13",
+      "C7"
+     ],
+     "auth": "共识"
+    }
+   ]
+  },
+  {
+   "id": "feynman",
+   "name": "Richard Feynman",
+   "nameZh": "理查德·费曼",
+   "gender": "男",
+   "birth": 1918,
+   "died": 1988,
+   "age": 69,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "学者薪级（中产）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "区分命名与理解",
+     "c": [
+      "C6",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "不欺骗自己",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "实验高于理论",
+     "c": [
+      "C16",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "理解式学习而非死记",
+     "c": [
+      "C6",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "持续思考的攻势",
+     "c": [
+      "C2",
+      "C3"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "以最不正统的方式深挖兴趣",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "教与辩以使知识扎根",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "现实优先于公关",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "naval",
+   "name": "Naval Ravikant",
+   "nameZh": "纳瓦尔·拉维坎特",
+   "gender": "男",
+   "birth": 1974,
+   "died": null,
+   "age": 52,
+   "ageBracket": "50-64",
+   "field": "投资与金融",
+   "income": "千万至亿美元级",
+   "incomeTier": 4,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "特定知识不可被训练",
+     "c": [
+      "C10"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成为世界最好并不断重定义",
+     "c": [
+      "C10",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "玩感即指南",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "追随真好奇而非风口",
+     "c": [
+      "C13",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "杠杆放大专长",
+     "c": [
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "靠真实逃离竞争",
+     "c": [
+      "C10"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "先养成阅读的瘾",
+     "c": [
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "追求长期自我而非短期回报",
+     "c": [
+      "C2",
+      "C13"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "csikszentmihalyi",
+   "name": "Mihaly Csikszentmihalyi",
+   "nameZh": "米哈里·契克森米哈伊",
+   "gender": "男",
+   "birth": 1934,
+   "died": 2021,
+   "age": 87,
+   "ageBracket": "65+",
+   "field": "心理与认知科学",
+   "income": "学者薪级（15–25万美元）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "mindset",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "挑战与技能的动态平衡——心流只在能力边缘发生",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "最优体验来自主动施压而非被动享受",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "注意力是最稀缺的心理资源",
+     "c": [
+      "C3",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通某领域是通往深层心流的门票",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "十年准备期是创造性贡献的前提",
+     "c": [
+      "C2"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "自得其乐的人格——内在动机",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "复杂性是精通的方向——差异化与整合",
+     "c": [
+      "C12",
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "kahneman",
+   "name": "Daniel Kahneman",
+   "nameZh": "丹尼尔·卡尼曼",
+   "gender": "男",
+   "birth": 1934,
+   "died": 2024,
+   "age": 90,
+   "ageBracket": "65+",
+   "field": "心理与认知科学",
+   "income": "十万至百万美元级（50–100万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "直觉即模式识别——而非神秘第六感",
+     "c": [
+      "C1",
+      "C6"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "环境效度决定直觉可信度",
+     "c": [
+      "C17",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "快速且高质量的反馈是习得专业技能的必要条件",
+     "c": [
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "自信与能力不等价",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "真正的专家知道自己的知识边界",
+     "c": [
+      "C9",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "经验不等于专长——时间堆砌可能加固错误",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "coyle",
+   "name": "Daniel Coyle",
+   "nameZh": "丹尼尔·科伊尔",
+   "gender": "男",
+   "birth": 1968,
+   "died": null,
+   "age": 58,
+   "ageBracket": "50-64",
+   "field": "思想写作与传播",
+   "income": "十万至百万美元级（10–30万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "天赋是培养出来的而非天生的",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "深练习发生在能力边缘——甜区",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "髓鞘是技能的神经印记",
+     "c": [
+      "C1"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "分块-重复-感受是深练习三步法",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "点燃是启动剂——情绪火花",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "大师教练用极简信号精准纠偏",
+     "c": [
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "练习质量以触及-停顿-修正次数衡量而非时长",
+     "c": [
+      "C4",
+      "C1"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "konnikova",
+   "name": "Maria Konnikova",
+   "nameZh": "玛丽亚·科尼科娃",
+   "gender": "女",
+   "birth": 1984,
+   "died": null,
+   "age": 42,
+   "ageBracket": "30-49",
+   "field": "心理与认知科学",
+   "income": "十万至百万美元级（15–40万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "mindset",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "决策质量与结果可分离",
+     "c": [
+      "C15",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "注意力是稀缺资源——而非智力",
+     "c": [
+      "C3",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "自我控制比读心术更重要",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "承认无知是精通的前提——贝叶斯更新",
+     "c": [
+      "C16",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "不完全信息博弈更接近真实精通",
+     "c": [
+      "C17",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "从零到精通可被设计——师承+理论+反馈+实战闭环",
+     "c": [
+      "C5",
+      "C4",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "情绪与认知不可分",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "kasparov",
+   "name": "Garry Kasparov",
+   "nameZh": "加里·卡斯帕罗夫",
+   "gender": "男",
+   "birth": 1963,
+   "died": null,
+   "age": 63,
+   "ageBracket": "50-64",
+   "field": "体育·竞技与修行",
+   "income": "数百万至千万级（数百万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "practice",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "直觉是海量经验内化后的模式识别",
+     "c": [
+      "C1",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "对自己残忍地诚实是精进的分水岭",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "战略与战术必须共生",
+     "c": [
+      "C9",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "复盘重于实战",
+     "c": [
+      "C4",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "每一刻都做当时最优决策",
+     "c": [
+      "C9",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "人机协作而非人机对抗",
+     "c": [
+      "C5",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨界迁移是检验真精通的试金石",
+     "c": [
+      "C12",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "kobe",
+   "name": "Kobe Bryant",
+   "nameZh": "科比·布莱恩特",
+   "gender": "男",
+   "birth": 1978,
+   "died": 2020,
+   "age": 41,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "亿美元以上（约6亿美元）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "精通是过程的偏执，而非结果的奖赏",
+     "c": [
+      "C15",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以偏执对抗熵增",
+     "c": [
+      "C8",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "苦工压倒天赋",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "要的是效果，不是好看",
+     "c": [
+      "C16",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "单目标全押",
+     "c": [
+      "C9",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "细节是精通的真正战场",
+     "c": [
+      "C1",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "把精通当终生的手艺而非职业",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "serena",
+   "name": "Serena Williams",
+   "nameZh": "塞雷娜·威廉姆斯",
+   "gender": "女",
+   "birth": 1981,
+   "died": null,
+   "age": 45,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "亿美元以上（约3亿美元）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "mindset",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "冠军由练习而非比赛定义",
+     "c": [
+      "C1",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "无人相信时仍要自信",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "朝向不可达的完美无限逼近",
+     "c": [
+      "C1",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "从失败中恢复的能力才是冠军",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "苦工是人人能做的差异化变量",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "先把'我是冠军'设定为事实再让能力追上信念",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通是进化而非谢幕",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "federer",
+   "name": "Roger Federer",
+   "nameZh": "罗杰·费德勒",
+   "gender": "男",
+   "birth": 1981,
+   "died": null,
+   "age": 45,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "亿美元以上（约5.5亿美元）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "举重若轻是苦工的投影，不是天赋的证明",
+     "c": [
+      "C2",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "练得多于赛",
+     "c": [
+      "C1",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通由那20%的输局定义",
+     "c": [
+      "C7",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "晚专精反而延长精通寿命",
+     "c": [
+      "C12",
+      "C2"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "质量高于数量，休息是训练的一部分",
+     "c": [
+      "C14",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "每一分都活在当下",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "把苦工视为礼物而非代价",
+     "c": [
+      "C13",
+      "C2"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "goodall",
+   "name": "Jane Goodall",
+   "nameZh": "简·古道尔",
+   "gender": "女",
+   "birth": 1934,
+   "died": null,
+   "age": 92,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "十万至百万美元级（50–100万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "耐心是田野精通的第一前提",
+     "c": [
+      "C2",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "沉浸式长期观察超越理论预设",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "对研究对象的共情不是缺陷而是方法",
+     "c": [
+      "C13",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "从个体到全球：精通须向使命感延伸",
+     "c": [
+      "C13",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "赋能他人是精通的最终形态",
+     "c": [
+      "C16",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "跨学科直觉与非传统路径可以催生突破",
+     "c": [
+      "C12",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "rams",
+   "name": "Dieter Rams",
+   "nameZh": "迪特·拉姆斯",
+   "gender": "男",
+   "birth": 1932,
+   "died": null,
+   "age": 94,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "十万至百万美元级（20–50万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "减法即精通：少即更好",
+     "c": [
+      "C14",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "对使用者的深切尊重是精通的伦理基础",
+     "c": [
+      "C15",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "诚实是精通的品质标准",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "细节的彻底性区分专业与业余",
+     "c": [
+      "C1",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "持久性对抗时尚：精通追求超越时代的正确",
+     "c": [
+      "C2",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "系统性自省：用原则清单反复校准自己",
+     "c": [
+      "C5",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "adria",
+   "name": "Ferran Adrià",
+   "nameZh": "费兰·阿德里亚",
+   "gender": "男",
+   "birth": 1962,
+   "died": null,
+   "age": 64,
+   "ageBracket": "50-64",
+   "field": "艺术与设计",
+   "income": "数百万至千万级（300–800万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "不复制是创造的第一条戒律",
+     "c": [
+      "C10",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "全身心投入：精通需要生命级别的奉献",
+     "c": [
+      "C2",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "系统性实验是创造的方法论引擎",
+     "c": [
+      "C4",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精确记录与系统编码是精通的放大器",
+     "c": [
+      "C4",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "在巅峰时主动终止：精通要求敢于打破成功惯性",
+     "c": [
+      "C9",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "拒绝艺术标签：精通者须认清自己的媒介",
+     "c": [
+      "C15",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "torvalds",
+   "name": "Linus Torvalds",
+   "nameZh": "林纳斯·托瓦兹",
+   "gender": "男",
+   "birth": 1969,
+   "died": null,
+   "age": 57,
+   "ageBracket": "50-64",
+   "field": "计算机与工程科技",
+   "income": "数百万至千万级（100–200万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "action",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "代码即论证：精通以可运行的实现为最终货币",
+     "c": [
+      "C16",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "数据结构优先于代码：精通看的是问题的骨架",
+     "c": [
+      "C6",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "内在驱动是精通的可持续燃料",
+     "c": [
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "从解决自己的问题开始",
+     "c": [
+      "C9",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "说'不'是维护者精通的核心技术",
+     "c": [
+      "C14",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "狡黠与不循常规",
+     "c": [
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "分布式协作与信任让精通变成群体能力",
+     "c": [
+      "C5",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "greene",
+   "name": "Robert Greene",
+   "nameZh": "罗伯特·格林",
+   "gender": "男",
+   "birth": 1959,
+   "died": null,
+   "age": 67,
+   "ageBracket": "65+",
+   "field": "思想写作与传播",
+   "income": "数百万至千万级（200–500万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset",
+    "strategy"
+   ],
+   "viewpoints": [
+    {
+     "t": "发现并追随'人生使命'(Life's Task)",
+     "c": [
+      "C13",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通遵循三阶段路径，无捷径可走",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "学徒阶段的核心是'向痛而行'",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "最大的障碍是'知识的幻觉'，而非无知",
+     "c": [
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "保持灵活，拒绝僵化的自我定义",
+     "c": [
+      "C15",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通不靠天赋基因，靠持续练习与好奇",
+     "c": [
+      "C1",
+      "C11",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "社交智力是精通的必要组成部分",
+     "c": [
+      "C5"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "ferriss",
+   "name": "Tim Ferriss",
+   "nameZh": "蒂姆·费里斯",
+   "gender": "男",
+   "birth": 1977,
+   "died": null,
+   "age": 49,
+   "ageBracket": "30-49",
+   "field": "思想写作与传播",
+   "income": "千万至亿美元级（500–2000万美元）",
+   "incomeTier": 4,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "先学'如何学'，再学具体技能（元学习优先）",
+     "c": [
+      "C11",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "拆解为最小可学组件（Deconstruction）",
+     "c": [
+      "C6",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "用80/20法则筛选高杠杆组件（Selection）",
+     "c": [
+      "C9",
+      "C14"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "确定最优学习顺序（Sequencing）",
+     "c": [
+      "C6",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "设定真实后果以保障执行（Stakes）",
+     "c": [
+      "C16",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "最小有效剂量原则（MED）",
+     "c": [
+      "C14"
+     ],
+     "auth": "借鉴"
+    },
+    {
+     "t": "恐惧设定优于目标设定（Fear-setting）",
+     "c": [
+      "C7",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "向顶尖人物要故事而非建议",
+     "c": [
+      "C5",
+      "C16"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "tharp",
+   "name": "Twyla Tharp",
+   "nameZh": "特怀拉·萨普",
+   "gender": "女",
+   "birth": 1941,
+   "died": null,
+   "age": 85,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "数百万至千万级（100–300万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "action",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "创造力即习惯，而非天赋",
+     "c": [
+      "C1",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "例行仪式保护创造的起点",
+     "c": [
+      "C1",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "日常精进是专家的基本盘",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "刻意练习自己的短板",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通=经验+视野+勇气+技能",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "激情与技能缺一不可",
+     "c": [
+      "C13",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以劳动者自居，拒绝艺术家标签",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "stanislavski",
+   "name": "Konstantin Stanislavski",
+   "nameZh": "康斯坦丁·斯坦尼斯拉夫斯基",
+   "gender": "男",
+   "birth": 1863,
+   "died": 1938,
+   "age": 75,
+   "ageBracket": "65+",
+   "field": "艺术与设计",
+   "income": "历史人物（剧院收入）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "system",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "有意识的技艺通向无意识的创造",
+     "c": [
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "灵感不可靠，技术才是底色",
+     "c": [
+      "C1",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "身体与声音须训练成灵敏工具",
+     "c": [
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "天赋与技术是加法而非替代",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "先有意识地做，再让它真诚",
+     "c": [
+      "C15",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "爱艺术中的自己，而非自己中的艺术",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "没有小角色，只有小演员",
+     "c": [
+      "C15"
+     ],
+     "auth": "借鉴"
+    }
+   ]
+  },
+  {
+   "id": "gould",
+   "name": "Glenn Gould",
+   "nameZh": "格伦·古尔德",
+   "gender": "男",
+   "birth": 1932,
+   "died": 1982,
+   "age": 50,
+   "ageBracket": "50-64",
+   "field": "艺术与设计",
+   "income": "十万至百万美元级（15–40万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "技艺的尽头是修行而非表演",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "巅峰期敢于放弃旧模式",
+     "c": [
+      "C9",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "技艺需要环境的重构",
+     "c": [
+      "C5",
+      "C14"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "完美主义是制作过程而非焦虑",
+     "c": [
+      "C4",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "孤独是燃料而非代价",
+     "c": [
+      "C13",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以深度对抗广度",
+     "c": [
+      "C3",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "组织与纪律是产出自由的底座",
+     "c": [
+      "C5",
+      "C14"
+     ],
+     "auth": "借鉴"
+    }
+   ]
+  },
+  {
+   "id": "king",
+   "name": "Stephen King",
+   "nameZh": "斯蒂芬·金",
+   "gender": "男",
+   "birth": 1947,
+   "died": null,
+   "age": 78,
+   "ageBracket": "65+",
+   "field": "思想写作与传播",
+   "income": "千万至亿美元级（2000–4000万美元）",
+   "incomeTier": 4,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "没有捷径：大量读与写是唯一通路",
+     "c": [
+      "C2",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "业余者等灵感，专业者去上班",
+     "c": [
+      "C16",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "每日定额与连续性纪律",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "能力是练出来的肌肉",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "量大本身就是学习方法",
+     "c": [
+      "C2",
+      "C11"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "天赋的标志是乐于不计回报地练习",
+     "c": [
+      "C13",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "修改是精通的另一半",
+     "c": [
+      "C4",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "阅读是与产出并重的输入侧修炼",
+     "c": [
+      "C11"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "pressfield",
+   "name": "Steven Pressfield",
+   "nameZh": "史蒂文·普莱斯菲尔德",
+   "gender": "男",
+   "birth": 1943,
+   "died": null,
+   "age": 82,
+   "ageBracket": "65+",
+   "field": "思想写作与传播",
+   "income": "十万至百万美元级（50–200万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "action",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "阻力是精通的第一对手，也是重要性的信标",
+     "c": [
+      "C7",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "业余者vs专业者：一套可判定的行为清单",
+     "c": [
+      "C15",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "转正是免费的自我决定，代价在内心",
+     "c": [
+      "C15",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "精通标准：做到'不可能做错'",
+     "c": [
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "成功是工作的副产品",
+     "c": [
+      "C15",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "你无法摆脱习惯，只能整体替换",
+     "c": [
+      "C14",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "内在批评声音是Resistance而非自己",
+     "c": [
+      "C7",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "终身在场：转正没有时间表",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "clear",
+   "name": "James Clear",
+   "nameZh": "詹姆斯·克利尔",
+   "gender": "男",
+   "birth": 1986,
+   "died": null,
+   "age": 40,
+   "ageBracket": "30-49",
+   "field": "思想写作与传播",
+   "income": "千万至亿美元级（500–2000万美元）",
+   "incomeTier": 4,
+   "region": "西方",
+   "schools": [
+    "system",
+    "action"
+   ],
+   "viewpoints": [
+    {
+     "t": "你不会上升到目标高度，只会跌落到系统水平",
+     "c": [
+      "C5",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "1%复利：微小改进的指数威力",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "身份认同驱动行为：先成为再做到",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "潜能潜伏期：成果滞后于投入",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "环境设计优于意志力",
+     "c": [
+      "C14",
+      "C5"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "行为改变四定律",
+     "c": [
+      "C5",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "永远不要连续错过两次",
+     "c": [
+      "C8",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "结果-过程-身份三层模型",
+     "c": [
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "mcclintock",
+   "name": "Barbara McClintock",
+   "nameZh": "芭芭拉·麦克林托克",
+   "gender": "女",
+   "birth": 1902,
+   "died": 1992,
+   "age": 90,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "学者薪级（2–5万美元）",
+   "incomeTier": 1,
+   "region": "西方",
+   "schools": [
+    "mindset",
+    "practice"
+   ],
+   "viewpoints": [
+    {
+     "t": "把观察对象当作对话伙伴",
+     "c": [
+      "C15",
+      "C3"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "'对有机体的感觉'——具身化直觉",
+     "c": [
+      "C1",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "耐心是方法论而非美德",
+     "c": [
+      "C2",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "独立判断高于同行认可",
+     "c": [
+      "C16",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "发现与享受一体",
+     "c": [
+      "C13",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以对象为中心胜过以成果为中心",
+     "c": [
+      "C15",
+      "C13"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "wilson",
+   "name": "Edward O. Wilson",
+   "nameZh": "爱德华·威尔逊",
+   "gender": "男",
+   "birth": 1929,
+   "died": 2021,
+   "age": 92,
+   "ageBracket": "65+",
+   "field": "医学与自然科学",
+   "income": "十万至百万美元级（20–60万美元）",
+   "incomeTier": 2,
+   "region": "西方",
+   "schools": [
+    "strategy",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "激情是科学的第一资本",
+     "c": [
+      "C13",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "选择冷门战场——远离枪声",
+     "c": [
+      "C9",
+      "C10"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "原创性源于单一个体的野心",
+     "c": [
+      "C13",
+      "C10"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "想象力优先于技术能力",
+     "c": [
+      "C6",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "为混乱与失败做心理预算",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "坚持路径本身是最高要求",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "buffett",
+   "name": "Warren Buffett",
+   "nameZh": "沃伦·巴菲特",
+   "gender": "男",
+   "birth": 1930,
+   "died": null,
+   "age": 95,
+   "ageBracket": "65+",
+   "field": "投资与金融",
+   "income": "亿美元以上（1300–1500亿美元）",
+   "incomeTier": 5,
+   "region": "西方",
+   "schools": [
+    "thinking",
+    "strategy"
+   ],
+   "viewpoints": [
+    {
+     "t": "能力圈：诚实划定'知道'与'不知道'的边界",
+     "c": [
+      "C9",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "每日海量阅读，知识像复利",
+     "c": [
+      "C11",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "极端耐心——甜区挥棒与懒惰是基石",
+     "c": [
+      "C14",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "长期主义的复利结构",
+     "c": [
+      "C2",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "风险即无知",
+     "c": [
+      "C16",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "护城河思维",
+     "c": [
+      "C10",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "musashi",
+   "name": "Miyamoto Musashi",
+   "nameZh": "宫本武藏",
+   "gender": "男",
+   "birth": 1584,
+   "died": 1645,
+   "age": 61,
+   "ageBracket": "50-64",
+   "field": "体育·竞技与修行",
+   "income": "历史人物（收入不适用）",
+   "incomeTier": 1,
+   "region": "日本",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "道即训练",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "千日练、万日磨",
+     "c": [
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "万般技艺之道",
+     "c": [
+      "C12",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "五十岁方悟道",
+     "c": [
+      "C2",
+      "C6"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "观见不可见之物",
+     "c": [
+      "C3",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以一事知万事",
+     "c": [
+      "C6",
+      "C12"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "内化于心体",
+     "c": [
+      "C1",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "日日自胜与偏差复利",
+     "c": [
+      "C15",
+      "C9"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "aurelius",
+   "name": "Marcus Aurelius",
+   "nameZh": "马可·奥勒留",
+   "gender": "男",
+   "birth": 121,
+   "died": 180,
+   "age": 58,
+   "ageBracket": "50-64",
+   "field": "哲学与内在修炼",
+   "income": "历史人物（收入不适用）",
+   "incomeTier": 1,
+   "region": "古罗马",
+   "schools": [
+    "mindset",
+    "system"
+   ],
+   "viewpoints": [
+    {
+     "t": "拂晓即起，劳作即天职",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "别争论善，去做善",
+     "c": [
+      "C16",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "挡路之物成为道路",
+     "c": [
+      "C7",
+      "C9"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "每日自省的内在修炼",
+     "c": [
+      "C4",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "只在可控处下功夫",
+     "c": [
+      "C9",
+      "C16"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "以死为限，专注当下",
+     "c": [
+      "C15",
+      "C2"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "匠人式极致投入为范本",
+     "c": [
+      "C13",
+      "C3"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "goggins",
+   "name": "David Goggins",
+   "nameZh": "大卫·戈金斯",
+   "gender": "男",
+   "birth": 1975,
+   "died": null,
+   "age": 51,
+   "ageBracket": "50-64",
+   "field": "体育·竞技与修行",
+   "income": "数百万至千万级（100–500万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "40%法则：极限是大脑制造的幻觉",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "把受苦排进日程",
+     "c": [
+      "C1",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "磨砺心智：最低谷做最佳工作",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "问责镜：每天面对最脏的真相",
+     "c": [
+      "C16",
+      "C4"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "对吃苦上瘾的工作伦理",
+     "c": [
+      "C8",
+      "C13"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "没人会来救你：极致自我依赖",
+     "c": [
+      "C8",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "反速成文化",
+     "c": [
+      "C2",
+      "C15"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  },
+  {
+   "id": "biles",
+   "name": "Simone Biles",
+   "nameZh": "西蒙·拜尔斯",
+   "gender": "女",
+   "birth": 1997,
+   "died": null,
+   "age": 29,
+   "ageBracket": "30-49",
+   "field": "体育·竞技与修行",
+   "income": "数百万至千万级（800–1500万美元）",
+   "incomeTier": 3,
+   "region": "西方",
+   "schools": [
+    "practice",
+    "mindset"
+   ],
+   "viewpoints": [
+    {
+     "t": "训练量只是入场券",
+     "c": [
+      "C2",
+      "C1"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "心理是技能的承载系统",
+     "c": [
+      "C7",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "自我优先是长期卓越的必要条件",
+     "c": [
+      "C7",
+      "C8"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "退场与回归同属专业动作",
+     "c": [
+      "C9",
+      "C15"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "把心理维护制度化",
+     "c": [
+      "C5",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "高压力下的自我调节是可训练技能",
+     "c": [
+      "C1",
+      "C7"
+     ],
+     "auth": "亲历"
+    },
+    {
+     "t": "大师也接受'清零重来'",
+     "c": [
+      "C7",
+      "C1"
+     ],
+     "auth": "亲历"
+    }
+   ]
+  }
+ ]
+}

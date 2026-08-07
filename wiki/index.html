@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>如何成为专家 · 多维分类 Wiki</title>
+<style>
+:root{--page:#0a0b0e;--surface:#15171c;--panel:#1a1d24;--panel2:#21252e;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);--ink:#fff;--sec:#c7ccd6;--muted:#8a93a3;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;--grad:linear-gradient(135deg,#3987e5,#9085e9)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(1200px 600px at 70% -10%,#1a2233 0,transparent 60%),var(--page);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.6}
+a{color:var(--s1);text-decoration:none}
+.topbar{max-width:1400px;margin:24px auto 0;display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(57,135,229,.12),rgba(144,133,233,.08));border:1px solid var(--border);border-radius:18px;padding:16px 24px;position:relative;animation:fadeUp .6s ease both}
+.topbar h1{font-size:22px;font-weight:800}.topbar h1 .sub{color:var(--muted);font-weight:400;font-size:13px;margin-left:8px}
+.topbar .meta{color:var(--muted);font-size:12px}
+.topbar .meta b{color:var(--s3)}
+.back-home{margin-left:auto;font-size:12px;color:var(--muted);padding:6px 12px;border:1px solid var(--border);border-radius:8px;transition:.15s}
+.back-home:hover{color:var(--ink);border-color:var(--muted)}
+.main{max-width:1400px;margin:0 auto;padding:18px 22px 90px;display:grid;grid-template-columns:296px 1fr;gap:18px;align-items:start}
+/* sidebar */
+.sidebar{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);animation:fadeUp .5s ease both}
+.sidebar::-webkit-scrollbar{width:6px}.sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+.s-head{display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:700;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
+.s-head .cnt{font-size:11px;color:var(--muted);font-weight:400}.s-head .cnt b{color:var(--s3)}
+.dim{margin-bottom:12px}
+.dl{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{background:var(--panel2);border:1px solid var(--border);color:var(--sec);padding:3px 9px;border-radius:12px;font-size:11px;cursor:pointer;user-select:none;transition:.15s}
+.chip:hover{border-color:var(--s1);color:var(--ink)}
+.chip.on{background:var(--s1);border-color:var(--s1);color:#fff}
+.chip i{opacity:.55;font-size:9px;margin-left:3px;font-style:normal}
+.reset{width:100%;margin-top:4px;background:transparent;border:1px dashed var(--border);color:var(--muted);padding:7px;border-radius:10px;font-size:12px;cursor:pointer;transition:.15s}
+.reset:hover{color:var(--ink);border-color:var(--muted)}
+/* content */
+.content{min-width:0}
+.count{color:var(--muted);font-size:12px;margin:2px 2px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .15s,transform .15s;box-shadow:0 8px 24px rgba(0,0,0,.22);animation:fadeUp .5s ease both}
+.card:hover{border-color:var(--s1);transform:translateY(-1px)}
+.card[open]{border-color:var(--s1)}
+.card summary{list-style:none;cursor:pointer;padding:14px 16px}
+.card summary::-webkit-details-marker{display:none}
+.card summary .row1{display:flex;align-items:center;gap:8px}
+.card .nm{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .nm small{color:var(--muted);font-size:11px;font-weight:400;margin-left:5px}
+.card .reg{margin-left:auto;flex-shrink:0;font-size:9px;color:var(--muted);border:1px solid var(--border);padding:1px 6px;border-radius:8px}
+.card .chev{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--panel2);border:1px solid var(--border);position:relative;transition:transform .2s}
+.card[open] .chev{transform:rotate(180deg)}
+.card .chev::after{content:"";position:absolute;top:50%;left:50%;width:5px;height:5px;border-right:1.5px solid var(--sec);border-bottom:1.5px solid var(--sec);transform:translate(-50%,-70%) rotate(45deg)}
+.card summary .row2{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:11px;color:var(--muted)}
+.card summary .row2 .field{color:var(--s1)}
+.card summary .row2 .sep{opacity:.4}
+.body{padding:0 16px 16px;border-top:1px solid var(--border);animation:fadeIn .25s ease}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin:12px 0}
+.facts>div{font-size:11px;display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--border);padding-bottom:4px}
+.facts span{color:var(--muted);flex-shrink:0}
+.facts b{color:var(--sec);text-align:right;font-weight:500}
+.facts b.sch{font-size:10px}
+.facts-tags{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;border-bottom:none!important}
+.tag{font-size:9px;padding:1px 6px;border-radius:7px}
+.s-practice{color:#f87171;background:#332023}.s-thinking{color:#60a5fa;background:#1a2433}.s-mindset{color:#c084fc;background:#2a1d33}.s-strategy{color:#34d399;background:#13302a}.s-generalist{color:#fbbf24;background:#332a14}.s-action{color:#f472b6;background:#331f2a}.s-system{color:#5eead4;background:#14302a}
+.bio{color:var(--sec);font-size:12px;margin:10px 0;border-left:2px solid var(--s1);padding-left:10px}
+.vps{margin-top:8px}
+.vp-item{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;margin-bottom:7px}
+.vp-item .vt{font-weight:600;font-size:12.5px}
+.vp-item .vd{color:var(--muted);font-size:11.5px;margin-top:2px}
+.vp-item .vverify{font-size:10.5px;color:var(--muted);margin-top:2px;font-style:italic}
+.vp-item .vverify::before{content:"核验｜";font-style:normal}
+.vp-item .vcats{margin-top:4px;display:flex;gap:3px;flex-wrap:wrap}
+.vp-item .c{font-size:9.5px;padding:0 5px;border-radius:5px;background:var(--panel);color:var(--s1);border:1px solid var(--border)}
+.vauth{display:inline-block;margin-left:6px;font-size:9.5px;padding:0 5px;border-radius:5px;font-weight:600}
+.vauth.亲历{background:#13302a;color:#34d399;border:1px solid #199e70}.vauth.借鉴{background:#332a14;color:#fbbf24;border:1px solid #c98500}.vauth.共识{background:#262626;color:#9a9892;border:1px solid #383835}
+.mdlink{display:inline-block;margin-top:10px;padding:7px 14px;background:linear-gradient(90deg,var(--s1),var(--s7));color:#fff;border-radius:8px;font-size:12px;transition:filter .15s}
+.mdlink:hover{filter:brightness(1.15)}
+.card.hidden{display:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:920px){.main{grid-template-columns:1fr}.sidebar{position:static;max-height:none}.back-home{margin-left:0}}
+</style></head>
+<body>
+<div class="topbar">
+  <h1>如何成为专家 · 多维分类 Wiki<span class="sub">43 位非中国专家</span></h1>
+  <div class="meta">从任意维度切入筛选 · 点击卡片展开全部观点（含真实性标签）</div>
+  <a class="back-home" href="../index.html">← 返回总览</a>
+</div>
+<div class="main">
+  <aside class="sidebar">
+    <div class="s-head">筛选维度<span class="cnt">当前 <b id="curN">43</b>/43 位</span></div>
+    <div class="dim"><span class="dl">从事领域</span><div class="chips"><span class="chip" data-dim="field" data-val="心理与认知科学">心理与认知科学<i>7</i></span><span class="chip" data-dim="field" data-val="思想写作与传播">思想写作与传播<i>9</i></span><span class="chip" data-dim="field" data-val="计算机与工程科技">计算机与工程科技<i>3</i></span><span class="chip" data-dim="field" data-val="体育·竞技与修行">体育·竞技与修行<i>9</i></span><span class="chip" data-dim="field" data-val="医学与自然科学">医学与自然科学<i>5</i></span><span class="chip" data-dim="field" data-val="艺术与设计">艺术与设计<i>6</i></span><span class="chip" data-dim="field" data-val="投资与金融">投资与金融<i>3</i></span><span class="chip" data-dim="field" data-val="哲学与内在修炼">哲学与内在修炼<i>1</i></span></div></div><div class="dim"><span class="dl">反馈效度</span><div class="chips"><span class="chip" data-dim="tier" data-val="高效度">高效度<i>12</i></span><span class="chip" data-dim="tier" data-val="中效度">中效度<i>7</i></span><span class="chip" data-dim="tier" data-val="低效度">低效度<i>24</i></span></div></div><div class="dim"><span class="dl">领域簇</span><div class="chips"><span class="chip" data-dim="cluster" data-val="竞技与认知竞技">竞技与认知竞技<i>9</i></span><span class="chip" data-dim="cluster" data-val="工艺创造">工艺创造<i>3</i></span><span class="chip" data-dim="cluster" data-val="表演艺术">表演艺术<i>3</i></span><span class="chip" data-dim="cluster" data-val="医学诊断">医学诊断<i>1</i></span><span class="chip" data-dim="cluster" data-val="决策博弈">决策博弈<i>1</i></span><span class="chip" data-dim="cluster" data-val="田野观察">田野观察<i>1</i></span><span class="chip" data-dim="cluster" data-val="创业工程">创业工程<i>1</i></span><span class="chip" data-dim="cluster" data-val="科研探索">科研探索<i>9</i></span><span class="chip" data-dim="cluster" data-val="写作传播">写作传播<i>11</i></span><span class="chip" data-dim="cluster" data-val="投资预测">投资预测<i>3</i></span><span class="chip" data-dim="cluster" data-val="哲学与内在修炼">哲学与内在修炼<i>1</i></span></div></div><div class="dim"><span class="dl">思想学派</span><div class="chips"><span class="chip" data-dim="school" data-val="practice">练习学派<i>20</i></span><span class="chip" data-dim="school" data-val="thinking">思维学派<i>7</i></span><span class="chip" data-dim="school" data-val="mindset">心性学派<i>22</i></span><span class="chip" data-dim="school" data-val="strategy">战略学派<i>9</i></span><span class="chip" data-dim="school" data-val="generalist">通才学派<i>3</i></span><span class="chip" data-dim="school" data-val="action">行动学派<i>20</i></span><span class="chip" data-dim="school" data-val="system">系统学派<i>10</i></span></div></div><div class="dim"><span class="dl">年龄段</span><div class="chips"><span class="chip" data-dim="age" data-val="30-49">30-49岁<i>10</i></span><span class="chip" data-dim="age" data-val="50-64">50-64岁<i>14</i></span><span class="chip" data-dim="age" data-val="65+">65+岁<i>19</i></span></div></div><div class="dim"><span class="dl">年收入</span><div class="chips"><span class="chip" data-dim="income" data-val="1">学者/中产<i>8</i></span><span class="chip" data-dim="income" data-val="2">十万至百万美元<i>14</i></span><span class="chip" data-dim="income" data-val="3">数百万至千万级<i>11</i></span><span class="chip" data-dim="income" data-val="4">千万至亿$<i>4</i></span><span class="chip" data-dim="income" data-val="5">亿美元以上<i>6</i></span></div></div><div class="dim"><span class="dl">性别</span><div class="chips"><span class="chip" data-dim="gender" data-val="男">男<i>33</i></span><span class="chip" data-dim="gender" data-val="女">女<i>10</i></span></div></div><div class="dim"><span class="dl">文化圈</span><div class="chips"><span class="chip" data-dim="region" data-val="西方">西方<i>41</i></span></div></div>
+    <button class="reset">清空筛选</button>
+  </aside>
+  <div class="content">
+    <div class="count" id="count">共 43 位专家 · 点击卡片展开详情</div>
+    <div class="grid" id="grid"><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="1" data-gender="男" data-region="西方" data-schools="practice,system">
+    <summary><div class="row1"><span class="nm">安德斯·埃里克森<small>Anders Ericsson</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>学者薪级（15–25万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">瑞典裔心理学家，'刻意练习'理论之父，毕生研究世界级专家如何达成卓越绩效。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">刻意练习而非简单重复<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">练习质量（目标·反馈·舒适区突破）决定专家诞生。</div><div class="vverify">其30年专家绩效研究的核心结论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">心理表征是专家的核心资产<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家与新手的根本差别是脑中更精细的心理表征。</div><div class="vverify">其研究提炼的专家-新手本质差异</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">走出舒适区是进步的必要条件<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">持续挑战'刚好超出当前能力'的任务。</div><div class="vverify">其实验研究揭示的进步机制</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">即时且高质量的反馈是闭环关键<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">无反馈的练习是盲目重复。</div><div class="vverify">其练习方法学的实证要素</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">导师/教练不可或缺<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">世界级专家关键阶段几乎都有优秀导师。</div><div class="vverify">基于其对世界级专家师承的系统观察</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span></div></div>
+    <div class="vp-item"><div class="vt">天赋神话可以解构<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">所谓天才背后皆有大量结构化训练。</div><div class="vverify">其对莫扎特、棋坛神童等案例的追溯研究</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">突破瓶颈靠方法变换而非蛮力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">换策略而非加量，是跨越高原期的核心路径。</div><div class="vverify">其高原期研究的方法论结论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">脑可塑性是终身学习的生理基础<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">长期练习重塑大脑回路。</div><div class="vverify">引用神经科学研究综合，非其原创实验结论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C11·阅读与持续学习</span></div></div></div>
+      <a class="mdlink" href="../experts/Anders-Ericsson.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="50-64" data-income="3" data-gender="男" data-region="西方" data-schools="practice">
+    <summary><div class="row1"><span class="nm">马尔科姆·格拉德威尔<small>Malcolm Gladwell</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（300–800万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span></div>
+      </div>
+      <div class="bio">加拿大裔英国记者作家，将社会心理学转化为大众叙事，提出'一万小时定律'。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">一万小时是通往精通的魔力数字<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">约一万小时高质量实践是达到世界级的入门门槛。</div><div class="vverify">自Ericsson研究提炼并简化为公众标签，非其原创</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">实践先于天赋<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">是先投入大量练习人才变优秀，而非因优秀才去练习。</div><div class="vverify">颠倒Ericsson的前提为其叙事化</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">机遇与时机是成功的隐形变量<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">卓越不仅靠个人努力，更靠出生在对的时代、获得对的机会。</div><div class="vverify">其Outliers的结构性原创论点</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span></div></div>
+    <div class="vp-item"><div class="vt">累积优势（马太效应）塑造专家路径<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">微小先行优势被时间放大成巨大差距。</div><div class="vverify">借用社会学家Robert Merton的马太效应概念</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">文化与社区背景为勤奋提供土壤<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">勤奋实践的习惯根植于文化传统与社区结构。</div><div class="vverify">其罗塞托人、稻田文化的原创案例分析</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span></div></div>
+    <div class="vp-item"><div class="vt">环境条件决定谁有可能累积练习时间<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">资源可达性与个人意愿同等重要。</div><div class="vverify">其结构性可达性论点</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span></div></div>
+    <div class="vp-item"><div class="vt">成功者不是异类<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">卓越是社会结构×时机×实践的合奏。</div><div class="vverify">其全书核心论点</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span><span class="c">C2·时间投入与长期积累</span></div></div></div>
+      <a class="mdlink" href="../experts/Malcolm-Gladwell.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="50-64" data-income="2" data-gender="女" data-region="西方" data-schools="mindset">
+    <summary><div class="row1"><span class="nm">安吉拉·达克沃斯<small>Angela Duckworth</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>十万至百万美元级（30–60万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国心理学家，'坚毅'（grit）理论提出者，研究什么让人在长期目标上坚持到底。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">坚毅＝激情＋坚持<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">对长期目标的持久热忱比IQ更能预测成就。</div><div class="vverify">其原创心理构念与西点/拼字比赛等实证研究</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">努力比天赋重要两倍<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">天赋×努力=技能，技能×努力=成就。</div><div class="vverify">其原创成就等式</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">天赋的陷阱<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">被夸'聪明'反而消磨坚毅。</div><div class="vverify">其研究与Dweck成长型思维对接的发现</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">兴趣是坚毅的情感起点<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">能在长期目标上坚持的人有发自内心的好奇。</div><div class="vverify">其四要素研究中的实证发现</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">目的感为坚毅注入意义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">将个人兴趣与社会价值连接，增强逆境中坚持。</div><div class="vverify">其实证发现</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">希望是坚毅的韧性引擎<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">相信'我的行动可改善未来'的人失败后继续。</div><div class="vverify">其与成长思维对接的研究</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">坚毅可培养<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">兴趣·练习·目的·希望四要素构成可操作框架。</div><div class="vverify">其原创四要素培养框架</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span></div></div></div>
+      <a class="mdlink" href="../experts/Angela-Duckworth.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="2" data-gender="女" data-region="西方" data-schools="mindset">
+    <summary><div class="row1"><span class="nm">卡罗尔·德韦克<small>Carol Dweck</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>十万至百万美元级（30–60万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国心理学家，'成长型思维'理论提出者，揭示对能力的隐含信念如何决定成长路径。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">思维模式决定成就天花板<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">对'能力是否可变'的信念先于技能练习而决定路径。</div><div class="vverify">其30年隐含智力理论研究的核心结论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">成长型思维让努力变得有价值<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">努力是通往精通的路径而非'能力不足'的信号。</div><div class="vverify">其原创理论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">'尚未'的力量<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">将失败重定义为过程中的暂态。</div><div class="vverify">其教育实践的概念创造（Not Yet）</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">夸过程而非夸天赋<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">反馈方式在潜移默化中塑造能否走向卓越。</div><div class="vverify">其实验研究结论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">成长型思维与脑可塑性同构<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">学习真的改变大脑。</div><div class="vverify">引用神经科学佐证，非其原创实验</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">拥抱挑战而非回避挑战<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">挑战是信息的来源。</div><div class="vverify">其实验观察</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">让批评与他人成功成为养料<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">卓越需要开放的信息吸收。</div><div class="vverify">其实验观察</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Carol-Dweck.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="计算机与工程科技" data-tier="低效度" data-cluster="写作传播" data-age="30-49" data-income="2" data-gender="男" data-region="西方" data-schools="strategy,action">
+    <summary><div class="row1"><span class="nm">卡尔·纽波特<small>Cal Newport</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">计算机与工程科技</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（100–300万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">乔治城大学计算机科学副教授，'深度工作'方法论倡导者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">深度工作是元技能<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">无干扰高强度认知劳动既稀缺又值钱。</div><div class="vverify">其面向知识工作的原创论点</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">匠人式思维优于激情式思维<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">始于'为世界贡献价值'而非'找到完美工作'。</div><div class="vverify">其原创心态对比框架</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">职业资本：稀有且有价值的能力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">难以复制、市场认可的能力才构成职业资本。</div><div class="vverify">其原创概念</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">激情是精通的副产品而非起点<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">先精通后热爱，顺序倒置让人放弃。</div><div class="vverify">其反主流原创论点</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">快速学习复杂事物的能力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">快速学习本身就是核心竞争力。</div><div class="vverify">其方法论主张</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">排除浅层工作、保护注意力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">注意力是需要被刻意保护的资产。</div><div class="vverify">其日程工程方法</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">以'少而精'取代忙碌<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">反对用数量与时间填充来衡量价值。</div><div class="vverify">其Slow Productivity原创论点</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C3·专注深度与置心一处</span></div></div></div>
+      <a class="mdlink" href="../experts/Cal-Newport.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="30-49" data-income="2" data-gender="男" data-region="西方" data-schools="practice,mindset,action">
+    <summary><div class="row1"><span class="nm">乔什·维茨金<small>Josh Waitzkin</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（30–100万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">国际象棋神童与太极拳推手世界冠军，'两次从零到顶尖'的学习方法论者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">投资于失败<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">愿意在能力边缘反复失败，让错误成为信息源。</div><div class="vverify">源自其象棋+太极双域竞技经历</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">以原则内化超越表面记忆<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把基本原则内化到直觉。</div><div class="vverify">其竞技内化经验</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">画更小的圆——深度优于广度<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把少数技术压缩到极高分辨率。</div><div class="vverify">其从竞技提炼的技术观</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">过程优先于结果<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把自我价值绑在结果上会让表现脆弱。</div><div class="vverify">其挫败后的反思</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">身心一体<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">呼吸、紧张、姿态都会影响认知表现。</div><div class="vverify">其太极竞技的身体经验</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">建立内在雷达<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">发展对自身状态的内部觉察。</div><div class="vverify">其压力下自我调节的竞技训练</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">用伤痛做燃料<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把失败与创伤转化为更深层学习的燃料。</div><div class="vverify">其创伤转化的个人经验</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Josh-Waitzkin.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="65+" data-income="1" data-gender="男" data-region="西方" data-schools="practice,mindset,system">
+    <summary><div class="row1"><span class="nm">乔治·伦纳德<small>George Leonard</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>学者薪级（已故）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">美国记者、合气道五段，《Mastery》作者，把武术修行哲学提炼为普适精通之道。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">热爱高原期<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通是一系列高原期，学会与'看不到进步'和解。</div><div class="vverify">其合气道修行与观察的原创洞见</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">练习即道路本身<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">练习不是通往目标的工具，练习就是道路。</div><div class="vverify">其修行哲学的原创表述</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">终身旅程而非终点<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">Master是日复一日留在道路上的人。</div><div class="vverify">其精通观</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">五大精通之钥<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">师承·练习·臣服·意向·边缘，五者缺一不可。</div><div class="vverify">其原创框架</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C1·刻意练习与高质量训练</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">三种非精通者原型<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">浅尝者·痴迷者·因循者——怕停滞·急功近利·满足平庸。</div><div class="vverify">其原创类型学</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">当下的练习<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">练习只存在于当下。</div><div class="vverify">呼应东方正念/禅修传统，非纯原创</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">反速成神话<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">承诺捷径的叙事都是对学习者的欺骗。</div><div class="vverify">其对速成文化的批判</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div></div>
+      <a class="mdlink" href="../experts/George-Leonard.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="30-49" data-income="2" data-gender="男" data-region="西方" data-schools="generalist,strategy">
+    <summary><div class="row1"><span class="nm">大卫·爱泼斯坦<small>David Epstein</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（30–100万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">通才学派、战略学派</b></div>
+        <div class="facts-tags"><span class="tag s-generalist">通才学派</span><span class="tag s-strategy">战略学派</span></div>
+      </div>
+      <div class="bio">美国科学记者，《Range》作者，论证在大多数真实领域里通才比早期专才更胜出。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">学习环境的'友好'与'恶劣'<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">先识别所在领域属于友好还是恶劣环境。</div><div class="vverify">借用Hogarth的kind/wicked learning environments概念</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C17·环境机遇与系统性条件</span></div></div>
+    <div class="vp-item"><div class="vt">通才在恶劣环境中胜出<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在大多数真实领域里通才比早期专才更可能胜出。</div><div class="vverify">其Range核心原创论点</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">晚期专精优于早期专精<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">先广泛采样再选方向，长期成就往往更高。</div><div class="vverify">其原创实证论点</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">采样期的价值<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">做出长期承诺前主动尝试多种领域。</div><div class="vverify">其论点</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">类比思维是通才的核心武器<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把A领域概念迁移到B领域是创新突破的主要来源。</div><div class="vverify">其论点</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">匹配质量先于承诺<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">延迟承诺、多次切换的人最终匹配度更高。</div><div class="vverify">借用劳动经济学的match quality概念</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">早期专精的隐性风险<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">过度专精可能在规则变化的世界成为负担。</div><div class="vverify">其反主流论点</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/David-Epstein.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="医学与自然科学" data-tier="中效度" data-cluster="医学诊断" data-age="50-64" data-income="2" data-gender="男" data-region="西方" data-schools="system,mindset">
+    <summary><div class="row1"><span class="nm">阿图·葛文德<small>Atul Gawande</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">医学与自然科学</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（50–200万美元）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>医学诊断</b></div>
+        <div><span>思想学派</span><b class="sch">系统学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-system">系统学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">哈佛外科医生、作家、Ariadne Labs联合创始人，将医学实践的系统改进转化为精通之道。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">勤勉而非天才<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">成为专家的首要条件不是天赋而是稳定认真的持续投入。</div><div class="vverify">源自其外科实践与Better研究</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">精通是相对而非绝对的<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">不是'是否变得伟大'而是'是否比过去的自己更好'。</div><div class="vverify">其后记的原创反思</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">勤勉≠完美主义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">勤勉是稳定而认真的努力，不是对无错的执念。</div><div class="vverify">其概念区分</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">卓越三要素：勤勉·守正·创新<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">positive deviants共有的三个特质。</div><div class="vverify">其原创框架</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">系统优于个人英雄主义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">复杂性超过个人上限时掌握清单与流程而非靠记忆。</div><div class="vverify">其清单实践与TED论点</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">测量与反馈是精进的引擎<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">追踪自己的结果数据，没有反馈闭环的练习是盲目的。</div><div class="vverify">其追踪结果的主张</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">向其他领域借力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">从航空、建筑业借鉴已被验证的系统化做法。</div><div class="vverify">其跨业借鉴实践</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span></div></div></div>
+      <a class="mdlink" href="../experts/Atul-Gawande.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="65+" data-income="3" data-gender="男" data-region="西方" data-schools="strategy,action,mindset">
+    <summary><div class="row1"><span class="nm">塞斯·戈丁<small>Seth Godin</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（100–500万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、行动学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-action">行动学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国营销思想家、多产作家，《The Dip》《Linchpin》作者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">精通必须穿过'低谷期'<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">从初学者运气到真正精通的漫长艰难期。</div><div class="vverify">其The Dip原创概念</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">战略性放弃是精通的前提<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">放弃不值得投入的事，把资源集中到能成为最好的方向。</div><div class="vverify">其原创论点</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">只有'世界最好'才有超额回报<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在选定微观领域成为最佳选择，稀缺性是价值来源。</div><div class="vverify">其市场逻辑论点</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span></div></div>
+    <div class="vp-item"><div class="vt">交付（Shipping）是精通的标志<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">真正的专家能克服恐惧反复完成并发布工作。</div><div class="vverify">借用乔布斯'Real artists ship'理念</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">情感投入定义'真正的工作'<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">愿意做可能失败、慷慨的、有人性的工作。</div><div class="vverify">其对'艺术'的原创重新定义</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">精通是实践而非天赋<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">创造性精通来自日复一日的实践。</div><div class="vverify">其The Practice论点</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">选择值得精进的领域<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">辨别你身处的是Dip还是死胡同。</div><div class="vverify">其战略论点</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/Seth-Godin.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="50-64" data-income="3" data-gender="女" data-region="西方" data-schools="mindset,action">
+    <summary><div class="row1"><span class="nm">布琳·布朗<small>Brené Brown</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>数百万至千万级（200–800万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">休斯顿大学研究教授，脆弱、羞耻与勇气研究学者，TED史上最高观看演讲者之一。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">脆弱是精通的起点<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">愿意暴露在不确定中是创造力与突破性精进的诞生地。</div><div class="vverify">其定性研究的核心发现</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">进入竞技场比旁观批评更接近卓越<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">精通属于满身尘土、屡次失败仍在场上的人。</div><div class="vverify">借用罗斯福'The Man in the Arena'演讲为精神支柱</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">跌倒后复原是一种可训练的实践<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">清算→搏斗→革命，把跌倒转化为精进的燃料。</div><div class="vverify">其Rising Strong原创三步法</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">'我已足够'是持续成长的心性基础<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">成长来自完整感而非匮乏感。</div><div class="vverify">其wholeheartedness研究</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">脆弱是一种可练习的日常行为<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把'愿意被看见'作为日常实践。</div><div class="vverify">其研究</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">连接与求助是精通之路的必需<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">求助、连接、归属感是必要条件而非软弱。</div><div class="vverify">其研究结论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C5·导师教练与系统工具</span></div></div>
+    <div class="vp-item"><div class="vt">羞耻是精进的最大障碍<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">学会识别和应对'我不够好'的恐惧。</div><div class="vverify">其羞耻研究的核心</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Brene-Brown.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="低效度" data-cluster="写作传播" data-age="65+" data-income="3" data-gender="女" data-region="西方" data-schools="action,mindset">
+    <summary><div class="row1"><span class="nm">玛雅·安吉洛<small>Maya Angelou</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>数百万至千万级（100–500万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">行动学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-action">行动学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国诗人、自传作家、民权活动家，以七部自传体作品闻名，2010年获总统自由勋章。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">精进的本质是认知迭代闭环<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">尽力做到知道的最好；知道得更好后就做得更好。</div><div class="vverify">其格言化的生活智慧</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">不投入则一切方法无效<span class="vauth 共识" title="接近通用常识/人云亦云，缺乏独特个人经验支撑">共识</span></div>
+    <div class="vd">任何天赋、工具、机会，离开个人投入都是空谈。</div><div class="vverify">接近通用常识性表述，虽为她说但缺乏独特经验支撑</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">创造力是用得越多越多的正向循环<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把创造力视为肌肉——越练越强。</div><div class="vverify">其创作经验提炼</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">纪律比灵感更可靠<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每天到场不论有无灵感，仪式化环境支撑纪律。</div><div class="vverify">其每日酒店房间写作仪式的实证</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">未表达的故事是一种痛苦<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">内在的'必须表达'比外在奖励更持久。</div><div class="vverify">其创作内驱</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">精进是为了优雅地生存<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">用最好的手艺对抗命运不公、赋予生命尊严。</div><div class="vverify">其存在性命题</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">在沉默中积累，在表达中精进<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在'不被看见'的阶段积蓄，等待找到声音的时机。</div><div class="vverify">其童年失语经历的提炼</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Maya-Angelou.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="投资与金融" data-tier="低效度" data-cluster="投资预测" data-age="65+" data-income="5" data-gender="男" data-region="西方" data-schools="thinking,generalist,action">
+    <summary><div class="row1"><span class="nm">查理·芒格<small>Charlie Munger</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">投资与金融</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>亿美元以上（约26亿美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>投资预测</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、通才学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-generalist">通才学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">巴菲特长期搭档，Berkshire副主席，以跨学科心智模型与'人类误判心理学'著称。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">跨学科心智模型网格<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">掌握多学科核心模型并编织成网格。</div><div class="vverify">其投资实践提炼的原创框架</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">成为学习机器<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">聪明不是关键，持续学习的能力才是。</div><div class="vverify">其观察的原创表述</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">持续精进，每日复利<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每天比醒来时更明智一点，几十年差距惊人。</div><div class="vverify">其复利哲学</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">广泛阅读是必要条件<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">几乎所有在广义领域内明智的人都终日阅读。</div><div class="vverify">其断言</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">逆向思考<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">想成功先想如何避免失败。</div><div class="vverify">引用数学家Jacobi的'Invert, always invert'</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">掌握人类误判心理学<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">认清认知偏差是做出高质量决策的前提。</div><div class="vverify">其原创演讲框架（受Cialdini影响）</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">配得上你想要的<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">卓越不是窍门，而是先让自己值得。</div><div class="vverify">其伦理论点</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">用模型挂接经验<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把经验挂接到心智模型网格，否则经验零散无效。</div><div class="vverify">其方法论</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Charlie-Munger.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="计算机与工程科技" data-tier="中效度" data-cluster="创业工程" data-age="50-64" data-income="5" data-gender="男" data-region="西方" data-schools="thinking,generalist,action">
+    <summary><div class="row1"><span class="nm">埃隆·马斯克<small>Elon Musk</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">计算机与工程科技</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>亿美元以上（千亿美元级）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>创业工程</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、通才学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-generalist">通才学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">SpaceX、Tesla、xAI创始人，把第一性原理从思维方式变成工程与商业实践。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">第一性原理思维<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把问题分解到最基本的物理真理再向上推理。</div><div class="vverify">术语虽古典，为其真实思考模式并以火箭成本分解验证</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">语义树式学习<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">先掌握树干与大枝（基本原理），叶子才有可挂接之处。</div><div class="vverify">其Reddit AMA原创比喻</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">质疑假设与自我<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">不断追问'还能怎么做得更好'，拒绝默认假设。</div><div class="vverify">其工程实践</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">极致工时密度<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">用远超常人的工时密度压缩学习曲线。</div><div class="vverify">其亲身实践（虽可争议）</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">跨域迁移原理<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">掌握一门学科的根本原理后可跨域迁移。</div><div class="vverify">其跨域创业实践</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">把成本分解到原子级<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把'它就是这么贵'的假设拆到原材料层面。</div><div class="vverify">其SpaceX工程实践</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">未来信念驱动行动<span class="vauth 共识" title="接近通用常识/人云亦云，缺乏独特个人经验支撑">共识</span></div>
+    <div class="vd">相信未来会更好的人会把它变得更好。</div><div class="vverify">接近通用自助式信念，缺乏独特实践支撑</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Elon-Musk.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="医学与自然科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="1" data-gender="男" data-region="西方" data-schools="thinking,action">
+    <summary><div class="row1"><span class="nm">理查德·费曼<small>Richard Feynman</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">医学与自然科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>学者薪级（中产）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">1965年诺贝尔物理学奖得主，费曼图创始人，被誉为'最伟大的解释者'。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">区分命名与理解<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">知道事物的名字不等于知道事物。</div><div class="vverify">源自其父亲观鸟的童年经验</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">不欺骗自己<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">成为专家的第一原则是不要自欺。</div><div class="vverify">其科学认识论原创原则</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">实验高于理论<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">再漂亮的理论与实验不符就是错的。</div><div class="vverify">其科学精神</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">理解式学习而非死记<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">靠死记得来的知识脆弱，无法迁移。</div><div class="vverify">其巴西教学经验</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">持续思考的攻势<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">没有问题能抵挡持续思考的攻势。</div><div class="vverify">该格言归属存疑（常归于伏尔泰），非其确证原创</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">以最不正统的方式深挖兴趣<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">好奇心驱动的非线性探索是精通的引擎。</div><div class="vverify">其致学生信</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">教与辩以使知识扎根<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">通过讨论、争辩、冲突学习才使知识留下。</div><div class="vverify">其学习实践</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">现实优先于公关<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">自然无法被糊弄，专家要敢于承认'错了'。</div><div class="vverify">其挑战者号调查结论</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Richard-Feynman.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="投资与金融" data-tier="低效度" data-cluster="投资预测" data-age="50-64" data-income="4" data-gender="男" data-region="西方" data-schools="strategy,action">
+    <summary><div class="row1"><span class="nm">纳瓦尔·拉维坎特<small>Naval Ravikant</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">投资与金融</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>千万至亿美元级</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>投资预测</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">AngelList创始人、硅谷天使投资人，以推文与播客传播财富、特定知识与杠杆的哲学。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">特定知识不可被训练<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">社会还无法培训、无法外包、无法替代的知识才是真正专长。</div><div class="vverify">其原创概念（呼应比较优势但为其表述）</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span></div></div>
+    <div class="vp-item"><div class="vt">成为世界最好并不断重定义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">不断收窄并重定义你做的事直到你是世界最好。</div><div class="vverify">其推文原创论点</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">玩感即指南<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">让你感觉像玩、别人觉得是苦工的事藏着你的特定知识。</div><div class="vverify">其原创'雷达'比喻</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">追随真好奇而非风口<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">特定知识由真实好奇与热爱发现。</div><div class="vverify">其论点</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">杠杆放大专长<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">零边际复制成本的代码与媒体最强，可在睡眠时持续工作。</div><div class="vverify">其原创杠杆分类学</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">靠真实逃离竞争<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">用真实自我构建独特组合才能逃离竞争。</div><div class="vverify">其论点</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span></div></div>
+    <div class="vp-item"><div class="vt">先养成阅读的瘾<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">读你爱的直到你爱上阅读。</div><div class="vverify">其个人经验表述</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">追求长期自我而非短期回报<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">特定知识需长期积累与承担不确定性。</div><div class="vverify">其论点</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C13·内驱热爱与目的感</span></div></div></div>
+      <a class="mdlink" href="../experts/Naval-Ravikant.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="1" data-gender="男" data-region="西方" data-schools="mindset,practice">
+    <summary><div class="row1"><span class="nm">米哈里·契克森米哈伊<small>Mihaly Csikszentmihalyi</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>学者薪级（15–25万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、练习学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-practice">练习学派</span></div>
+      </div>
+      <div class="bio">匈牙利裔美国心理学家，'心流'(Flow)理论提出者，研究最优体验与创造力。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">挑战与技能的动态平衡——心流只在能力边缘发生<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">心流在挑战与技能恰好匹配时出现，进步即不断抬升天花板。</div><div class="vverify">其心流研究的核心发现</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">最优体验来自主动施压而非被动享受<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">最好的时刻是主动将身心推向极限去做困难有价值之事。</div><div class="vverify">其Flow核心的反直觉主张</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">注意力是最稀缺的心理资源<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">生活质量取决于如何投资注意力，管理注意力比管理时间更根本。</div><div class="vverify">其注意力投资论</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">精通某领域是通往深层心流的门票<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">深层心流最易发生于已精通一门技艺者身上。</div><div class="vverify">其心流与精通关系的论述</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">十年准备期是创造性贡献的前提<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">做出被领域认可的创造性贡献前须先约十年内化规则。</div><div class="vverify">呼应Simon&amp;Chase十年规则，非纯原创</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">自得其乐的人格——内在动机<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">因活动本身而非外在奖赏行动者更易长期精进。</div><div class="vverify">其autotelic人格原创概念</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">复杂性是精通的方向——差异化与整合<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">既越来越独特专业又越来越能与他人意义相连。</div><div class="vverify">其复杂性理论</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/Mihaly-Csikszentmihalyi.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="2" data-gender="男" data-region="西方" data-schools="thinking,system">
+    <summary><div class="row1"><span class="nm">丹尼尔·卡尼曼<small>Daniel Kahneman</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（50–100万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">以色列裔美国心理学家，2002诺贝尔经济学奖得主，研究专家直觉何时可信。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">直觉即模式识别——而非神秘第六感<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">专家直觉是大量经验后对熟悉模式的自动识别。</div><div class="vverify">发扬Herbert Simon的洞见，非其原创</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">环境效度决定直觉可信度<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">只有稳定规律、可学习线索的高效度环境中直觉才可靠。</div><div class="vverify">其与Klein合作的专家直觉条件研究</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">快速且高质量的反馈是习得专业技能的必要条件<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">反馈越快越准越可重复，经验越能转化为专长。</div><div class="vverify">其专业技能习得条件论述</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">自信与能力不等价<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">信心是判断不是证据，低效度领域尤危。</div><div class="vverify">其认知偏差研究核心</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">真正的专家知道自己的知识边界<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">真专家能识别直觉何时可信何时不可信并乐于说'我不知道'。</div><div class="vverify">其专家与虚假专家区分论点</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">经验不等于专长——时间堆砌可能加固错误<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">低效度环境中经验会强化错误判断，十年经验不等于十年专长。</div><div class="vverify">其低效度环境研究结论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Daniel-Kahneman.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="50-64" data-income="2" data-gender="男" data-region="西方" data-schools="practice,system">
+    <summary><div class="row1"><span class="nm">丹尼尔·科伊尔<small>Daniel Coyle</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（10–30万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">美国科学记者，《The Talent Code》作者，实地走访全球天赋热区提炼深练习模型。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">天赋是培养出来的而非天生的<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">天才是深练习+点燃+大师教练协同的产物，非基因馈赠。</div><div class="vverify">其Talent Code核心命题</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">深练习发生在能力边缘——甜区<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">进步最快的练习在'恰好够不着'的边缘反复触及-失误-修正。</div><div class="vverify">其实地观察天赋热区的提炼</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">髓鞘是技能的神经印记<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">反复精确激活包绕神经纤维使信号更快更强更准。</div><div class="vverify">引用神经科学髓鞘论，非其原创实验</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">分块-重复-感受是深练习三步法<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">拆分小块、高密度重复、全感官感受错误与修正。</div><div class="vverify">其深练习三规则的提炼</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">点燃是启动剂——情绪火花<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">深练习需要被目标/偶像/身份认同点燃的情绪燃料。</div><div class="vverify">其点燃概念</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">大师教练用极简信号精准纠偏<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">好教练用最短最准的语言点燃学生并纠正偏差。</div><div class="vverify">其对热区教练的观察</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span></div></div>
+    <div class="vp-item"><div class="vt">练习质量以触及-停顿-修正次数衡量而非时长<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">深练习单位是进入够不着-停顿-修正循环的次数。</div><div class="vverify">其深练习度量论</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C1·刻意练习与高质量训练</span></div></div></div>
+      <a class="mdlink" href="../experts/Daniel-Coyle.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="心理与认知科学" data-tier="中效度" data-cluster="决策博弈" data-age="30-49" data-income="2" data-gender="女" data-region="西方" data-schools="mindset,system">
+    <summary><div class="row1"><span class="nm">玛丽亚·科尼科娃<small>Maria Konnikova</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">心理与认知科学</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>十万至百万美元级（15–40万美元）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>决策博弈</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">俄裔美国心理学家与职业扑克选手，以从零学扑克一年夺冠验证复杂技能习得。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">决策质量与结果可分离<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">正确决策可能输、错误决策可能赢，只评估当时信息下是否最优。</div><div class="vverify">其扑克亲历+心理学解读</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">注意力是稀缺资源——而非智力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">区分顶尖者的是能否持续把注意力精确投到当下关键信息。</div><div class="vverify">其从零学扑克的实证</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">自我控制比读心术更重要<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">瓶颈是管不住自己的情绪而非看不见对手的牌。</div><div class="vverify">其扑克亲历发现</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">承认无知是精通的前提——贝叶斯更新<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">高手最快承认'这条信息让我该改信念'并持续更新。</div><div class="vverify">其贝叶斯思维论</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">不完全信息博弈更接近真实精通<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">扑克比国际象棋更接近人生商业医疗的真实决策。</div><div class="vverify">其扑克vs象棋论点</div>
+    <div class="vcats"><span class="c">C17·环境机遇与系统性条件</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">从零到精通可被设计——师承+理论+反馈+实战闭环<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">选世界级导师、学理论、每手复盘、真实赛场接受反馈。</div><div class="vverify">其一年从零到冠军的亲历验证</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C4·反馈测量与闭环</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">情绪与认知不可分<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把情绪当信息源而非敌人，识别它、解读它、不让它越权。</div><div class="vverify">其心理学家视角</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div></div>
+      <a class="mdlink" href="../experts/Maria-Konnikova.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="50-64" data-income="3" data-gender="男" data-region="西方" data-schools="thinking,practice,action">
+    <summary><div class="row1"><span class="nm">加里·卡斯帕罗夫<small>Garry Kasparov</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（数百万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、练习学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-practice">练习学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">俄罗斯前国际象棋世界冠军，将棋艺决策提炼为《How Life Imitates Chess》。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">直觉是海量经验内化后的模式识别<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">棋感是多年积累的心智数据库在潜意识自动比对。</div><div class="vverify">其棋手生涯的心智数据库论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">对自己残忍地诚实是精进的分水岭<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">客观复盘失误不被胜负和自尊蒙蔽。</div><div class="vverify">其赛后复盘方法论</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">战略与战术必须共生<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">长期愿景与短期精确计算缺一不可。</div><div class="vverify">其棋艺战略战术论</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">复盘重于实战<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">赛后逐手拆解是把经验转化为专长的关键机制。</div><div class="vverify">其对弈复盘实践</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">每一刻都做当时最优决策<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">养成在任何信息约束下做当前最优判断的习惯。</div><div class="vverify">其决策论</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">人机协作而非人机对抗<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把工具当放大器而非替代者，把创造力投向机器做不到处。</div><div class="vverify">其Deep Blue对弈后的反思</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">跨界迁移是检验真精通的试金石<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">真掌握的是决策与思维框架而非棋招，能从棋盘迁移到商业政治。</div><div class="vverify">其从棋到商业政治迁移论</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Garry-Kasparov.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="30-49" data-income="5" data-gender="男" data-region="西方" data-schools="practice,action">
+    <summary><div class="row1"><span class="nm">科比·布莱恩特<small>Kobe Bryant</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>亿美元以上（约6亿美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">NBA湖人队巨星，5次总冠军，《Mamba Mentality》作者，以偏执训练著称。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">精通是过程的偏执，而非结果的奖赏<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把全部注意力锁在过程上，结果是过程做对的副产品。</div><div class="vverify">其Mamba Mentality核心</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">以偏执对抗熵增<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把对退步的恐惧当持续训练的燃料，松一口气就开始滑落。</div><div class="vverify">其自述训练驱动</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">苦工压倒天赋<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">天赋只给起点优势，天花板由谁训练更久更细更狠决定。</div><div class="vverify">其反复主张</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">要的是效果，不是好看<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">对形式美观但无效的动作零容忍，以结果为唯一裁判。</div><div class="vverify">其训练实效论</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">单目标全押<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">挑一只兔子全押，放弃分散的安全感。</div><div class="vverify">其聚焦论</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">细节是精通的真正战场<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家与高手的差距在别人看不见的细节颗粒度。</div><div class="vverify">其退役后毫米级细节研究</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">把精通当终生的手艺而非职业<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把手艺本身放在身份之上，精通没有退役一刻。</div><div class="vverify">其身份认同</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/Kobe-Bryant.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="30-49" data-income="5" data-gender="女" data-region="西方" data-schools="mindset,practice">
+    <summary><div class="row1"><span class="nm">塞雷娜·威廉姆斯<small>Serena Williams</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>亿美元以上（约3亿美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、练习学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-practice">练习学派</span></div>
+      </div>
+      <div class="bio">美国网球运动员，23个大满贯单打冠军（公开赛年代纪录），以力量打法改写女子网球。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">冠军由练习而非比赛定义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">你怎样训练就怎样比赛，精通在无人观看的训练馆。</div><div class="vverify">其训练论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">无人相信时仍要自信<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">资源不对等时自我信念是唯一可调动的资产。</div><div class="vverify">其资源不对等时的信念论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">朝向不可达的完美无限逼近<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">明知永不可达完美却永不停止尝试。</div><div class="vverify">其完美主义</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">从失败中恢复的能力才是冠军<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">冠军衡量在跌倒后如何爬起而非赢多少。</div><div class="vverify">其伤病产后重返赛场的亲历</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">苦工是人人能做的差异化变量<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">身体技术差距被拉平后勤奋专注是仅剩可控变量。</div><div class="vverify">其勤奋论</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">先把'我是冠军'设定为事实再让能力追上信念<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">自我设定是能力建设的起点而非结果。</div><div class="vverify">其父Richard的身份先行训练法</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">精通是进化而非谢幕<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把已掌握能力迁移到新战场，终身不设上限。</div><div class="vverify">其Vogue退役自述</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div></div>
+      <a class="mdlink" href="../experts/Serena-Williams.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="30-49" data-income="5" data-gender="男" data-region="西方" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">罗杰·费德勒<small>Roger Federer</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>亿美元以上（约5.5亿美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">瑞士网球运动员，20大满贯，以'举重若轻'球风与晚专精、可持续著称。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">举重若轻是苦工的投影，不是天赋的证明<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">effortless is a myth，外在从容是数万小时苦工的自动化。</div><div class="vverify">其达特茅斯毕业演讲</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">练得多于赛<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通不在参赛次数而在练习对比赛的高比例。</div><div class="vverify">其达特茅斯演讲</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">精通由那20%的输局定义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">区别专家的不是赢时多风光而是输时如何复盘不崩。</div><div class="vverify">其达特茅斯演讲胜率论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">晚专精反而延长精通寿命<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">童年玩多运动青春期后才聚焦避免早衰与倦怠。</div><div class="vverify">运动发展心理学文献以其为晚专精案例</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">质量高于数量，休息是训练的一部分<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">用练得精+恢复足换可持续，过度训练是精通的自杀。</div><div class="vverify">其可持续训练论</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">每一分都活在当下<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">打一个球时不能想上一分或下一分。</div><div class="vverify">其达特茅斯演讲</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">把苦工视为礼物而非代价<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把日复一日训练当礼物而非痛苦预付，让可持续成为可能。</div><div class="vverify">其达特茅斯演讲</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C2·时间投入与长期积累</span></div></div></div>
+      <a class="mdlink" href="../experts/Roger-Federer.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="医学与自然科学" data-tier="中效度" data-cluster="田野观察" data-age="65+" data-income="2" data-gender="女" data-region="西方" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">简·古道尔<small>Jane Goodall</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">医学与自然科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>十万至百万美元级（50–100万美元）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>田野观察</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">英国灵长类学家，26岁赴坦桑尼亚贡贝研究黑猩猩60余年，凭田野观察改写灵长类学。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">耐心是田野精通的第一前提<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">以数月乃至数年静默等待换取对象信任，无即时回报地长时间坚持。</div><div class="vverify">其贡贝数千小时静坐观察亲历</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">沉浸式长期观察超越理论预设<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">让对象自己说话而非用先入框架，低理论高沉浸催生颠覆性发现。</div><div class="vverify">其低理论高沉浸方法论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">对研究对象的共情不是缺陷而是方法<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">与对象建立情感联结而看见被客观视角遮蔽的模式。</div><div class="vverify">其共情式观察方法论</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">从个体到全球：精通须向使命感延伸<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">理解-关怀-帮助-拯救四步闭环，只停留理解不算真正精通。</div><div class="vverify">其从科学家到保护行动者的转型</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">赋能他人是精通的最终形态<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家终极价值在能否让他人也具备行动力而非仅展示自身卓越。</div><div class="vverify">其Roots&amp;Shoots赋能理念</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">跨学科直觉与非传统路径可以催生突破<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">非科班局外人视角恰恰是突破僵化范式的关键。</div><div class="vverify">其非科班改写范式经历</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/Jane-Goodall.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="高效度" data-cluster="工艺创造" data-age="65+" data-income="2" data-gender="男" data-region="西方" data-schools="strategy,action">
+    <summary><div class="row1"><span class="nm">迪特·拉姆斯<small>Dieter Rams</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（20–50万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>工艺创造</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">德国工业设计师，博朗设计总监近四十年，提出最具影响力的'十大设计原则'。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">减法即精通：少即更好<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">反复追问哪些可去掉，知道什么不该做是专业能力最高体现。</div><div class="vverify">其十大设计原则核心</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">对使用者的深切尊重是精通的伦理基础<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专业能力首先是服务能力而非自我表达。</div><div class="vverify">其设计声明</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">诚实是精通的品质标准<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">不用包装营销虚饰成果，让成果自己说话。</div><div class="vverify">其第六条设计原则</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">细节的彻底性区分专业与业余<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在最微小决策处也不放松标准，非随意性是工艺分水岭。</div><div class="vverify">其第八条设计原则</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">持久性对抗时尚：精通追求超越时代的正确<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">追求十年五十年后仍成立的正确而非当下掌声。</div><div class="vverify">其第七条设计原则</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">系统性自省：用原则清单反复校准自己<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把经验凝练为可反复检验的准则并用它持续自审。</div><div class="vverify">其十大原则的自审机制</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Dieter-Rams.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="高效度" data-cluster="工艺创造" data-age="50-64" data-income="3" data-gender="男" data-region="西方" data-schools="practice,action">
+    <summary><div class="row1"><span class="nm">费兰·阿德里亚<small>Ferran Adrià</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（300–800万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>工艺创造</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">西班牙加泰罗尼亚厨师，elBulli餐厅主厨，将烹饪制度化为研发实验室，连续多年世界第一。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">不复制是创造的第一条戒律<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在掌握传统后主动拒绝复制，追问'有没有没人做过的'。</div><div class="vverify">其elBulli创造信条</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">全身心投入：精通需要生命级别的奉献<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">时间资源不对称集中近乎排他投入。</div><div class="vverify">其半年歇业研发制度</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">系统性实验是创造的方法论引擎<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">制度化实验-筛选-记录，承受大量失败。</div><div class="vverify">其每年数百实验的研发流程</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">精确记录与系统编码是精通的放大器<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把个人创造外部化为可检索可传承的编码体系。</div><div class="vverify">其1846道菜系统建档</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">在巅峰时主动终止：精通要求敢于打破成功惯性<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">在最高点终止以防精通退化为自我重复。</div><div class="vverify">其2011巅峰关闭elBulli</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">拒绝艺术标签：精通者须认清自己的媒介<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">坚持把创造媒介作为思考边界，不因虚荣偏离本质。</div><div class="vverify">其'我是厨师不是艺术家'自我定位</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/Ferran-Adria.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="计算机与工程科技" data-tier="高效度" data-cluster="工艺创造" data-age="50-64" data-income="3" data-gender="男" data-region="西方" data-schools="thinking,action,system">
+    <summary><div class="row1"><span class="nm">林纳斯·托瓦兹<small>Linus Torvalds</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">计算机与工程科技</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（100–200万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>工艺创造</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、行动学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-action">行动学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">芬兰裔美国程序员，Linux内核与git创造者，Linux Foundation Fellow。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">代码即论证：精通以可运行的实现为最终货币<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把观点变成可执行可测试可合并的对象，终结立场博弈。</div><div class="vverify">其LKML'show me the code'实践</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">数据结构优先于代码：精通看的是问题的骨架<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通在对问题结构本质的把握而非代码行数。</div><div class="vverify">其编程哲学论</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">内在驱动是精通的可持续燃料<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">解决问题本身好玩可支撑数十年，外部激励会枯竭。</div><div class="vverify">其'编程本身有趣'论</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">从解决自己的问题开始<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通不始于宏大愿景而始于真实切身的痛点。</div><div class="vverify">其Linux/git诞生于自身需求</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">说'不'是维护者精通的核心技术<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">守护阶段核心从添加转变为甄别与拒绝。</div><div class="vverify">其内核维护者拒绝补丁实践</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">狡黠与不循常规<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">纯粹技术不够，还需在规则约束中创造性穿行。</div><div class="vverify">其TED演讲sneaky bastard</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">分布式协作与信任让精通变成群体能力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">设计让他人也能高效贡献的系统结构。</div><div class="vverify">其git协作机制设计</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Linus-Torvalds.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="65+" data-income="3" data-gender="男" data-region="西方" data-schools="practice,mindset,strategy">
+    <summary><div class="row1"><span class="nm">罗伯特·格林<small>Robert Greene</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（200–500万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派、战略学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span><span class="tag s-strategy">战略学派</span></div>
+      </div>
+      <div class="bio">美国畅销书作家，《Mastery》作者，通过历史大师个案研究提炼精通的普遍模式。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">发现并追随'人生使命'(Life's Task)<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">找到内心深处的天然亲和力并全力追随。</div><div class="vverify">其Mastery原创概念</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">精通遵循三阶段路径，无捷径可走<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">学徒-创造活跃-精通三不可跳过阶段。</div><div class="vverify">其三阶段原创框架</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">学徒阶段的核心是'向痛而行'<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">主动走向困难与阻力，压制自我接受笨拙。</div><div class="vverify">其学徒期方法论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">最大的障碍是'知识的幻觉'，而非无知<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">阻碍精通的是你以为自己已经知道了。</div><div class="vverify">其Mastery核心论点</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">保持灵活，拒绝僵化的自我定义<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">过早确定'我就是做X的人'会限制视野。</div><div class="vverify">其反僵化论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">精通不靠天赋基因，靠持续练习与好奇<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">历史大师共同点是痴迷式投入而非基因。</div><div class="vverify">其反天赋论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C11·阅读与持续学习</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">社交智力是精通的必要组成部分<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">现实世界的精通总是在社会网络中运作。</div><div class="vverify">其Mastery单列社交智力维度</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span></div></div></div>
+      <a class="mdlink" href="../experts/Robert-Greene.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="30-49" data-income="4" data-gender="男" data-region="西方" data-schools="strategy,action">
+    <summary><div class="row1"><span class="nm">蒂姆·费里斯<small>Tim Ferriss</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>千万至亿美元级（500–2000万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">美国畅销书作家与播客主，《4-Hour Chef》《Tools of Titans》作者，专研加速学习。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">先学'如何学'，再学具体技能（元学习优先）<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">先研究已学会的人是怎么学会的再规划学习。</div><div class="vverify">其meta-learning方法论</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">拆解为最小可学组件（Deconstruction）<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把庞大技能拆成最小可学积木块。</div><div class="vverify">其DiSSS框架</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">用80/20法则筛选高杠杆组件（Selection）<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">找出带来80%效果的20%组件。</div><div class="vverify">应用帕累托法则，非其原创</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">确定最优学习顺序（Sequencing）<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">让每一步为下一步铺路减少总体时间。</div><div class="vverify">其DiSSS框架</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">设定真实后果以保障执行（Stakes）<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">为不完成设定真实后果，没有利害的学习必然失败。</div><div class="vverify">其DiSSS框架</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">最小有效剂量原则（MED）<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">找到能产生效果的最小投入量，超出纯属浪费。</div><div class="vverify">借用医学最小有效剂量概念</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">恐惧设定优于目标设定（Fear-setting）<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">定义恐惧比定义目标更能推动行动。</div><div class="vverify">其TED演讲原创恐惧设定法</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">向顶尖人物要故事而非建议<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">故事藏着真实路径与失败细节，建议多是幸存者偏差式通用语。</div><div class="vverify">其数百次采访方法论</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C16·教学外化与诚实不自欺</span></div></div></div>
+      <a class="mdlink" href="../experts/Tim-Ferriss.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="中效度" data-cluster="表演艺术" data-age="65+" data-income="3" data-gender="女" data-region="西方" data-schools="action,practice">
+    <summary><div class="row1"><span class="nm">特怀拉·萨普<small>Twyla Tharp</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>数百万至千万级（100–300万美元）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>表演艺术</b></div>
+        <div><span>思想学派</span><b class="sch">行动学派、练习学派</b></div>
+        <div class="facts-tags"><span class="tag s-action">行动学派</span><span class="tag s-practice">练习学派</span></div>
+      </div>
+      <div class="bio">美国现代舞编舞家，《The Creative Habit》作者，把直觉式创作拆解为可教授的习惯方法论。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">创造力即习惯，而非天赋<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">创作是好工作习惯的产物，天才叙事掩盖了纪律与苦功。</div><div class="vverify">其The Creative Habit核心命题</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">例行仪式保护创造的起点<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">仪式让启动自动化，抵御起步期的退缩。</div><div class="vverify">其晨间仪式实践</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">日常精进是专家的基本盘<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家与业余者的差别在能否把精进变成每日例行公事。</div><div class="vverify">其'习惯的民主'主张</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">刻意练习自己的短板<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">高手搁下纯熟技能，专门攻自己的缺陷。</div><div class="vverify">其'搁下强项专攻缺陷'主张</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">精通=经验+视野+勇气+技能<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通是复合态，目的是支持你冒更大的风险。</div><div class="vverify">其Mastery章论述</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">激情与技能缺一不可<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">无技能则热切却挣扎，无激情则止于工匠。</div><div class="vverify">其创作生命本质论</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">以劳动者自居，拒绝艺术家标签<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专业身份来自持续交付的劳动而非天赋认证。</div><div class="vverify">其'我是工人'的自我定位</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/Twyla-Tharp.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="中效度" data-cluster="表演艺术" data-age="65+" data-income="1" data-gender="男" data-region="西方" data-schools="system,action">
+    <summary><div class="row1"><span class="nm">康斯坦丁·斯坦尼斯拉夫斯基<small>Konstantin Stanislavski</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>历史人物（剧院收入）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>表演艺术</b></div>
+        <div><span>思想学派</span><b class="sch">系统学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-system">系统学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">俄罗斯戏剧演员/导演，斯坦尼斯拉夫斯基表演体系创始人，让'成为专家'成为可按步骤学习的学科。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">有意识的技艺通向无意识的创造<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">灵感不可强求，但可经有意识训练稳定触发。</div><div class="vverify">其表演体系最高命题</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">灵感不可靠，技术才是底色<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">有技艺者即使无灵感也能完成可信表演。</div><div class="vverify">其对'个性演员'的批评</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">身体与声音须训练成灵敏工具<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">潜意识经由身体显形，技艺精度决定表达精度。</div><div class="vverify">其An Actor Prepares论述</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">天赋与技术是加法而非替代<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">天赋是必需原料，但仅靠天赋不能成事。</div><div class="vverify">其系统性反驳天才论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">先有意识地做，再让它真诚<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">自觉的分析工作触发潜意识与灵感。</div><div class="vverify">其'magic if'方法论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">爱艺术中的自己，而非自己中的艺术<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">去虚荣才能精进，把注意力放在作品上。</div><div class="vverify">其反表演虚荣的实践</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">没有小角色，只有小演员<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">专家身份取决于投入的完整度而非机会大小。</div><div class="vverify">归属存疑，传统归于其体系</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/Konstantin-Stanislavski.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="艺术与设计" data-tier="中效度" data-cluster="表演艺术" data-age="50-64" data-income="2" data-gender="男" data-region="西方" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">格伦·古尔德<small>Glenn Gould</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">艺术与设计</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（15–40万美元）</b></div>
+        <div><span>反馈效度</span><b>中效度</b></div><div><span>领域簇</span><b>表演艺术</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">加拿大钢琴家，32岁巅峰退出音乐会转向录音室，以对巴赫的诠释与录音哲学闻名。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">技艺的尽头是修行而非表演<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">艺术是终其一生的'惊奇与宁静'的构造。</div><div class="vverify">其Let's Ban Applause主张</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">巅峰期敢于放弃旧模式<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">形式可疑则弃之，自主性在于判断什么配得上技艺。</div><div class="vverify">其32岁退出音乐会</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">技艺需要环境的重构<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">工具与媒介是技艺的一部分，专家应重构工作环境。</div><div class="vverify">其录音室取代舞台</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C14·杠杆与时间自由</span></div></div>
+    <div class="vp-item"><div class="vt">完美主义是制作过程而非焦虑<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把完美从不可出错转化为可迭代构造的对象。</div><div class="vverify">其'创造性作弊'剪辑实践</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">孤独是燃料而非代价<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">隔离评价才能保住创造产出的纯度。</div><div class="vverify">其'隔离是幸福'言论</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">以深度对抗广度<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">数十年深耕巴赫，反复录制同一作品。</div><div class="vverify">其哥德堡变奏曲两个版本</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">组织与纪律是产出自由的底座<span class="vauth 借鉴" title="显式借用他人观点（已注明出处），非原创但非盲目附和">借鉴</span></div>
+    <div class="vd">铁意志+列清单支撑高产。</div><div class="vverify">传记转述其秩序与掌控</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C14·杠杆与时间自由</span></div></div></div>
+      <a class="mdlink" href="../experts/Glenn-Gould.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="65+" data-income="4" data-gender="男" data-region="西方" data-schools="practice,action">
+    <summary><div class="row1"><span class="nm">斯蒂芬·金<small>Stephen King</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>千万至亿美元级（2000–4000万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">美国'恐怖之王'，65部以上小说，《On Writing》作者，把写作彻底职业化的终身纪律者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">没有捷径：大量读与写是唯一通路<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">输入与输出必须同时高量运转，无替代方案。</div><div class="vverify">其On Writing第一法则</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">业余者等灵感，专业者去上班<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把创作降格为职业，反而解放了创作。</div><div class="vverify">其'按时上班'论</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">每日定额与连续性纪律<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每天10页/2000词，连续性本身是质量机制。</div><div class="vverify">其写作日常</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">能力是练出来的肌肉<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">想象力经日复一日锤炼，天赋只是可强化的起点。</div><div class="vverify">其'想象力是肌肉'论</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">量大本身就是学习方法<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">读多少写多少是能力的一部分，只可经由做来学会。</div><div class="vverify">其learn only by doing</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C11·阅读与持续学习</span></div></div>
+    <div class="vp-item"><div class="vt">天赋的标志是乐于不计回报地练习<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">天赋不是豁免练习，而是使练习不成其为负担。</div><div class="vverify">其反直觉天赋判据</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">修改是精通的另一半<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">第二稿=第一稿−10%，精通是反复修正的系统。</div><div class="vverify">其写作法则</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">阅读是与产出并重的输入侧修炼<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">没时间读就没时间写，阅读是创作中枢。</div><div class="vverify">其阅读论</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span></div></div></div>
+      <a class="mdlink" href="../experts/Stephen-King.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="65+" data-income="2" data-gender="男" data-region="西方" data-schools="action,mindset">
+    <summary><div class="row1"><span class="nm">史蒂文·普莱斯菲尔德<small>Steven Pressfield</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（50–200万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">行动学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-action">行动学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国作家，《The War of Art》作者，以'阻力'与'转正'概念把成为专家重新定义为内在战争。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">阻力是精通的第一对手，也是重要性的信标<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">阻力越大往往越说明这正是该做的事。</div><div class="vverify">其Resistance概念</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">业余者vs专业者：一套可判定的行为清单<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">区分二者不是才华而是可观察的习惯模式。</div><div class="vverify">其业余/专业对照清单</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">转正是免费的自我决定，代价在内心<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">门槛是决心本身，成本是放弃舒适。</div><div class="vverify">其Turning Pro主张</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">精通标准：做到'不可能做错'<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">业余者做到正确为止，专业者练到不可能错。</div><div class="vverify">其精进标准定义</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">成功是工作的副产品<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">宏大幻想是业余者症候，专业者只做工作。</div><div class="vverify">其副产品论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">你无法摆脱习惯，只能整体替换<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">把业余习惯替换为专业习惯是转正的本质。</div><div class="vverify">其习惯替换论</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">内在批评声音是Resistance而非自己<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">识别自我怀疑的伪装并驳回，继续工作。</div><div class="vverify">其认知技能论</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">终身在场：转正没有时间表<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">17年失败与52岁出道证明转正不分早晚。</div><div class="vverify">其个人经历实证</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div></div>
+      <a class="mdlink" href="../experts/Steven-Pressfield.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="思想写作与传播" data-tier="低效度" data-cluster="写作传播" data-age="30-49" data-income="4" data-gender="男" data-region="西方" data-schools="system,action">
+    <summary><div class="row1"><span class="nm">詹姆斯·克利尔<small>James Clear</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">思想写作与传播</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>千万至亿美元级（500–2000万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>写作传播</b></div>
+        <div><span>思想学派</span><b class="sch">系统学派、行动学派</b></div>
+        <div class="facts-tags"><span class="tag s-system">系统学派</span><span class="tag s-action">行动学派</span></div>
+      </div>
+      <div class="bio">美国作家，《Atomic Habits》作者，把习惯科学翻译为可操作的行为工程。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">你不会上升到目标高度，只会跌落到系统水平<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">实际表现取决于每天运行的机制而非宣称的目标。</div><div class="vverify">其Atomic Habits核心句</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">1%复利：微小改进的指数威力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每日改进1%一年强37倍，差距是复利结果。</div><div class="vverify">其复利隐喻</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">身份认同驱动行为：先成为再做到<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每次行动都是身份的一票，自我叙事维持长期纪律。</div><div class="vverify">其身份选票论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">潜能潜伏期：成果滞后于投入<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">突破在临界点之后，需熬过看似无进展的阶段。</div><div class="vverify">其Plateau of Latent Potential</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">环境设计优于意志力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">改造世界而非强化自我，让正确行为毫不费力。</div><div class="vverify">其环境工程论</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C5·导师教练与系统工具</span></div></div>
+    <div class="vp-item"><div class="vt">行为改变四定律<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">明显、诱人、容易、满足，习惯可工程化设计。</div><div class="vverify">其四大定律框架</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">永远不要连续错过两次<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">一次断档是事故，两次就是新坏习惯的开端。</div><div class="vverify">其恢复能力论</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">结果-过程-身份三层模型<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家的养成是一次身份迁移，不是任务完成。</div><div class="vverify">其三层模型</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/James-Clear.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="医学与自然科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="1" data-gender="女" data-region="西方" data-schools="mindset,practice">
+    <summary><div class="row1"><span class="nm">芭芭拉·麦克林托克<small>Barbara McClintock</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">医学与自然科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>学者薪级（2–5万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、练习学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-practice">练习学派</span></div>
+      </div>
+      <div class="bio">美国遗传学家，1983诺贝尔奖得主，以'聆听有机体'的耐心研究与转座子发现闻名。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">把观察对象当作对话伙伴<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精通始于'聆听'而非'征服'，以提问-回应关系研究材料。</div><div class="vverify">其'向玉米提问'方法论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C3·专注深度与置心一处</span></div></div>
+    <div class="vp-item"><div class="vt">'对有机体的感觉'——具身化直觉<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">直觉建立在对每个个体数十年凝视之上，靠具体性取胜。</div><div class="vverify">其拒绝抽象化方法</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">耐心是方法论而非美德<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">用三年核对数据才宣布发现，慢是精密结论的代价。</div><div class="vverify">其转座子验证过程</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">独立判断高于同行认可<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">外部验证缺席30年仍维持判断质量。</div><div class="vverify">其'没人能让你停下来'</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">发现与享受一体<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">持久的乐趣是支撑数十年孤寂研究的第一燃料。</div><div class="vverify">其诺奖演讲</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">以对象为中心胜过以成果为中心<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">问题重心放在对象上，冷遇与质疑就无法劫持路线。</div><div class="vverify">其生存结构论</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C13·内驱热爱与目的感</span></div></div></div>
+      <a class="mdlink" href="../experts/Barbara-McClintock.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="医学与自然科学" data-tier="低效度" data-cluster="科研探索" data-age="65+" data-income="2" data-gender="男" data-region="西方" data-schools="strategy,mindset">
+    <summary><div class="row1"><span class="nm">爱德华·威尔逊<small>Edward O. Wilson</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">医学与自然科学</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>十万至百万美元级（20–60万美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>科研探索</b></div>
+        <div><span>思想学派</span><b class="sch">战略学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-strategy">战略学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国生物学家，社会生物学之父，两届普利策奖得主，《Letters to a Young Scientist》作者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">激情是科学的第一资本<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">激情导向坚持；智力过高反而易因无聊而弃场。</div><div class="vverify">其'把激情放在训练之前'</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">选择冷门战场——远离枪声<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">避开热门领域，竞争烈度由你选的位置决定。</div><div class="vverify">其行军隐喻</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C10·不可替代与特定知识</span></div></div>
+    <div class="vp-item"><div class="vt">原创性源于单一个体的野心<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">创造先在孤独头脑中孕育，'成为第一'是血腥味。</div><div class="vverify">其原创性理论</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C10·不可替代与特定知识</span></div></div>
+    <div class="vp-item"><div class="vt">想象力优先于技术能力<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">工具可外包，问题意识不能；正确的提问高于答案。</div><div class="vverify">其数学半文盲自述</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">为混乱与失败做心理预算<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">松弛与白日梦是创造机制而非浪费时间。</div><div class="vverify">其TED建议</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">坚持路径本身是最高要求<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">选一条路走到底本身就是稀缺品质。</div><div class="vverify">其'世界需要你'结语</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div></div>
+      <a class="mdlink" href="../experts/Edward-O-Wilson.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="投资与金融" data-tier="低效度" data-cluster="投资预测" data-age="65+" data-income="5" data-gender="男" data-region="西方" data-schools="thinking,strategy">
+    <summary><div class="row1"><span class="nm">沃伦·巴菲特<small>Warren Buffett</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">投资与金融</span><span class="sep">·</span><span>65+岁</span><span class="sep">·</span><span>6条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>亿美元以上（1300–1500亿美元）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>投资预测</b></div>
+        <div><span>思想学派</span><b class="sch">思维学派、战略学派</b></div>
+        <div class="facts-tags"><span class="tag s-thinking">思维学派</span><span class="tag s-strategy">战略学派</span></div>
+      </div>
+      <div class="bio">美国投资家，伯克希尔·哈撒韦CEO，以能力圈、护城河与长期主义著称。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">能力圈：诚实划定'知道'与'不知道'的边界<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">圈的大小不重要，知道边界才至关重要。</div><div class="vverify">其1996股东信定义</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">每日海量阅读，知识像复利<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每天读500页，持续性本身即壁垒。</div><div class="vverify">其HBO纪录片自述</div>
+    <div class="vcats"><span class="c">C11·阅读与持续学习</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">极端耐心——甜区挥棒与懒惰是基石<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">高水平表现为大多数时候正确地不行动。</div><div class="vverify">其Ted Williams比喻</div>
+    <div class="vcats"><span class="c">C14·杠杆与时间自由</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">长期主义的复利结构<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">能以十年为单位思考，才配得上级联复利。</div><div class="vverify">其十年维度论</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">风险即无知<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">精进直接降低的是风险函数而非收益。</div><div class="vverify">其风险定义</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">护城河思维<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">构建难以复制、持续加深的特定能力组合。</div><div class="vverify">其选择被投资物标准</div>
+    <div class="vcats"><span class="c">C10·不可替代与特定知识</span><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/Warren-Buffett.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="50-64" data-income="1" data-gender="男" data-region="日本" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">宫本武藏<small>Miyamoto Musashi</small></span><span class="reg">日本</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>8条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>历史人物（收入不适用）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">日本剑圣，《五轮书》作者，60余场真剑决斗不败，把剑道升维为'万般技艺之道'。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">道即训练<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">训练本身是目的而非通向目的的工具。</div><div class="vverify">其《五轮书》九条心法</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">千日练、万日磨<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">成形与琢磨两阶段，打磨需数倍时间且永无止境。</div><div class="vverify">其《五轮书》地之卷</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">万般技艺之道<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">以本行为核心通晓百艺，反哺专精。</div><div class="vverify">其兼修书画禅法实践</div>
+    <div class="vcats"><span class="c">C12·跨界通才与类比迁移</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">五十岁方悟道<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">技能早熟不等于道的成熟，原理升华需数十年。</div><div class="vverify">其自序</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C6·心智模型与第一性原理</span></div></div>
+    <div class="vp-item"><div class="vt">观见不可见之物<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">专家感知隐微细节与不可见意图，靠实战经验养成。</div><div class="vverify">其九条心法第7条</div>
+    <div class="vcats"><span class="c">C3·专注深度与置心一处</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">以一事知万事<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">由繁入简提炼原理，再由简驭繁应用万象。</div><div class="vverify">其兵法原理</div>
+    <div class="vcats"><span class="c">C6·心智模型与第一性原理</span><span class="c">C12·跨界通才与类比迁移</span></div></div>
+    <div class="vp-item"><div class="vt">内化于心体<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">知识须融入身体而非止于阅读记忆模仿。</div><div class="vverify">其《五轮书》结尾教诲</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">日日自胜与偏差复利<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">与昨日自己比较；初始方向的小偏差会放大。</div><div class="vverify">其火之卷</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C9·方向选择与做对的事</span></div></div></div>
+      <a class="mdlink" href="../experts/Miyamoto-Musashi.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="哲学与内在修炼" data-tier="低效度" data-cluster="哲学与内在修炼" data-age="50-64" data-income="1" data-gender="男" data-region="古罗马" data-schools="mindset,system">
+    <summary><div class="row1"><span class="nm">马可·奥勒留<small>Marcus Aurelius</small></span><span class="reg">古罗马</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">哲学与内在修炼</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>历史人物（收入不适用）</b></div>
+        <div><span>反馈效度</span><b>低效度</b></div><div><span>领域簇</span><b>哲学与内在修炼</b></div>
+        <div><span>思想学派</span><b class="sch">心性学派、系统学派</b></div>
+        <div class="facts-tags"><span class="tag s-mindset">心性学派</span><span class="tag s-system">系统学派</span></div>
+      </div>
+      <div class="bio">古罗马皇帝，斯多葛哲学家，《沉思录》作者，把'成为完整的人'作为终身修炼。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">拂晓即起，劳作即天职<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">自律第一步是该起身时起身，劳作是人的本性。</div><div class="vverify">其《沉思录》5.1起床训</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">别争论善，去做善<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">从'论道'切换到'行道'，知识不等于能力。</div><div class="vverify">其《沉思录》10.16</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">挡路之物成为道路<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">障碍即修炼素材，不可控之事可转化为助力。</div><div class="vverify">其《沉思录》5.20</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C9·方向选择与做对的事</span></div></div>
+    <div class="vp-item"><div class="vt">每日自省的内在修炼<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">以日课审查自己的判断与行动，观照自我是元练习。</div><div class="vverify">其《沉思录》文本本身</div>
+    <div class="vcats"><span class="c">C4·反馈测量与闭环</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">只在可控处下功夫<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">二分控制：外物不可控，判断与意志可控。</div><div class="vverify">其斯多葛二分法</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C16·教学外化与诚实不自欺</span></div></div>
+    <div class="vp-item"><div class="vt">以死为限，专注当下<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">死亡临头，提升必须在今天执行。</div><div class="vverify">其《沉思录》4.17</div>
+    <div class="vcats"><span class="c">C15·过程导向与身份认同</span><span class="c">C2·时间投入与长期积累</span></div></div>
+    <div class="vp-item"><div class="vt">匠人式极致投入为范本<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">为技艺废寝忘食是最高形态的生活态度。</div><div class="vverify">其《沉思录》5卷工匠比喻</div>
+    <div class="vcats"><span class="c">C13·内驱热爱与目的感</span><span class="c">C3·专注深度与置心一处</span></div></div></div>
+      <a class="mdlink" href="../experts/Marcus-Aurelius.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="50-64" data-income="3" data-gender="男" data-region="西方" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">大卫·戈金斯<small>David Goggins</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>50-64岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>男</b></div><div><span>年收入</span><b>数百万至千万级（100–500万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国前海豹突击队员/耐力运动员，《Can't Hurt Me》作者，把受苦推向极致的自律实践者。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">40%法则：极限是大脑制造的幻觉<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">以为到极限时只用了40%真实能力，突破先改认知。</div><div class="vverify">其40%法则概念</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">把受苦排进日程<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">主动性受苦是对抗被动苦难的免疫训练。</div><div class="vverify">其'把痛苦纳入日程'</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">磨砺心智：最低谷做最佳工作<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">最想放弃时偏要坚持，心智老茧纯积累无捷径。</div><div class="vverify">其Calloused Mind主张</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">问责镜：每天面对最脏的真相<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每日照镜写目标写借口，对抗自欺是日常引擎。</div><div class="vverify">其Accountability Mirror方法</div>
+    <div class="vcats"><span class="c">C16·教学外化与诚实不自欺</span><span class="c">C4·反馈测量与闭环</span></div></div>
+    <div class="vp-item"><div class="vt">对吃苦上瘾的工作伦理<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">激情天赋只是工具，唯一托底的是work ethic。</div><div class="vverify">其工作伦理论</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C13·内驱热爱与目的感</span></div></div>
+    <div class="vp-item"><div class="vt">没人会来救你：极致自我依赖<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">受害者叙事是最昂贵的成本。</div><div class="vverify">其自我依赖哲学</div>
+    <div class="vcats"><span class="c">C8·坚毅坚持与长期主义</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">反速成文化<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">快修与生活黑客不会通向自我主宰，无痛提升是幻觉。</div><div class="vverify">其反捷径立场</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C15·过程导向与身份认同</span></div></div></div>
+      <a class="mdlink" href="../experts/David-Goggins.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details><details class="card" data-field="体育·竞技与修行" data-tier="高效度" data-cluster="竞技与认知竞技" data-age="30-49" data-income="3" data-gender="女" data-region="西方" data-schools="practice,mindset">
+    <summary><div class="row1"><span class="nm">西蒙·拜尔斯<small>Simone Biles</small></span><span class="reg">西方</span><span class="chev"></span></div>
+    <div class="row2"><span class="field">体育·竞技与修行</span><span class="sep">·</span><span>30-49岁</span><span class="sep">·</span><span>7条观点</span></div></summary>
+    <div class="body">
+      <div class="facts">
+        <div><span>性别</span><b>女</b></div><div><span>年收入</span><b>数百万至千万级（800–1500万美元）</b></div>
+        <div><span>反馈效度</span><b>高效度</b></div><div><span>领域簇</span><b>竞技与认知竞技</b></div>
+        <div><span>思想学派</span><b class="sch">练习学派、心性学派</b></div>
+        <div class="facts-tags"><span class="tag s-practice">练习学派</span><span class="tag s-mindset">心性学派</span></div>
+      </div>
+      <div class="bio">美国体操运动员，11枚奥运奖牌，以'扭麻花'退赛-复出证明心理维护是长期卓越的基础设施。</div>
+      <div class="vps">
+    <div class="vp-item"><div class="vt">训练量只是入场券<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每周32–42小时换3–5分钟比赛，表现是隐性总量的千分之几。</div><div class="vverify">其训练时长自述</div>
+    <div class="vcats"><span class="c">C2·时间投入与长期积累</span><span class="c">C1·刻意练习与高质量训练</span></div></div>
+    <div class="vp-item"><div class="vt">心理是技能的承载系统<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">'扭麻花'证明心理失稳时十年积累的技能瞬间无法访问。</div><div class="vverify">其东京退赛亲历</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">自我优先是长期卓越的必要条件<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">不照顾心理就享受不了运动也达不到成绩。</div><div class="vverify">其心理健康优先主张</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C8·坚毅坚持与长期主义</span></div></div>
+    <div class="vp-item"><div class="vt">退场与回归同属专业动作<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">战略性暂停是绩效优化变量，'硬撑'是伪韧性。</div><div class="vverify">其退赛-复出-再夺冠循环</div>
+    <div class="vcats"><span class="c">C9·方向选择与做对的事</span><span class="c">C15·过程导向与身份认同</span></div></div>
+    <div class="vp-item"><div class="vt">把心理维护制度化<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">每周四见治疗师像宗教仪式，制度优于自我告诫。</div><div class="vverify">其治疗仪式实践</div>
+    <div class="vcats"><span class="c">C5·导师教练与系统工具</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">高压力下的自我调节是可训练技能<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">情绪调节与难度动作一样需要刻意打磨。</div><div class="vverify">其巴黎周期自我调节</div>
+    <div class="vcats"><span class="c">C1·刻意练习与高质量训练</span><span class="c">C7·成长思维与拥抱失败</span></div></div>
+    <div class="vp-item"><div class="vt">大师也接受'清零重来'<span class="vauth 亲历" title="基于自身经历/研究/实践的原创思考，非人云亦云">亲历</span></div>
+    <div class="vd">从球池软垫重新学起，恢复与迁移本身就是专家技能。</div><div class="vverify">其复出重建过程</div>
+    <div class="vcats"><span class="c">C7·成长思维与拥抱失败</span><span class="c">C1·刻意练习与高质量训练</span></div></div></div>
+      <a class="mdlink" href="../experts/Simone-Biles.md" target="_blank">查看完整资料（含原话原材料）→</a>
+    </div>
+  </details></div>
+  </div>
+</div>
+<script>
+const sel={};
+document.querySelectorAll('.chip').forEach(c=>{
+  c.onclick=()=>{
+    const d=c.dataset.dim,v=c.dataset.val;
+    sel[d]=sel[d]||new Set();
+    if(sel[d].has(v)){sel[d].delete(v);c.classList.remove('on');}else{sel[d].add(v);c.classList.add('on');}
+    applyFilters();
+  };
+});
+document.querySelector('.reset').onclick=()=>{Object.keys(sel).forEach(k=>sel[k].clear());document.querySelectorAll('.chip.on').forEach(c=>c.classList.remove('on'));applyFilters();};
+function matchDim(card,dim,val){
+  if(dim==="field")return card.dataset.field===val;
+  if(dim==="tier")return card.dataset.tier===val;
+  if(dim==="cluster")return card.dataset.cluster===val;
+  if(dim==="age")return card.dataset.age===val;
+  if(dim==="income")return card.dataset.income===val;
+  if(dim==="gender")return card.dataset.gender===val;
+  if(dim==="region")return card.dataset.region===val;
+  if(dim==="school")return card.dataset.schools.split(',').includes(val);
+}
+function applyFilters(){
+  let vis=0;
+  document.querySelectorAll('.card').forEach(card=>{
+    let ok=true;
+    for(const d in sel){if(sel[d].size===0)continue;let m=false;for(const v of sel[d]){if(matchDim(card,d,v)){m=true;break;}}if(!m){ok=false;break;}}
+    card.classList.toggle('hidden',!ok);if(ok)vis++;
+  });
+  document.getElementById('curN').textContent=vis;
+  document.getElementById('count').textContent='共 '+vis+' 位专家 · 点击卡片展开详情';
+}
+</script>
+</body></html>
